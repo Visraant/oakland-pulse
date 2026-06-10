@@ -1,5 +1,5 @@
 {
- "status": "verified_seed",
+ "status": "live",
  "source": "Cushman & Wakefield \u2014 Oakland/East Bay MarketBeats",
  "points": [
   {
@@ -22,6 +22,25 @@
    "retrieved": "2026-06-09",
    "period": "2026-Q1",
    "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats"
+  },
+  {
+   "segment": "office",
+   "vacancy_pct": 27.4,
+   "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats",
+   "retrieved": "2026-06-10"
+  },
+  {
+   "segment": "industrial",
+   "vacancy_pct": 8.0,
+   "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats",
+   "retrieved": "2026-06-10"
+  },
+  {
+   "segment": "retail",
+   "vacancy_pct": 7.2,
+   "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats",
+   "retrieved": "2026-06-10"
   }
- ]
+ ],
+ "generated_at": "2026-06-10T07:25:31Z"
 }

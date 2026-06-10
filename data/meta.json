@@ -1,29 +1,105 @@
 {
- "last_pipeline_run": "2026-06-10T07:06:58Z",
+ "last_pipeline_run": "2026-06-10T07:25:56Z",
  "sources": {
   "oakland_business_accounts": {
-   "status": "seeded"
+   "status": "error",
+   "name": "Opened & Closed Business Accounts (Oakland Finance Dept.)",
+   "type": "oakland_pdf_list",
+   "category": "business_activity",
+   "schedule": "monthly",
+   "output": "business_accounts.json",
+   "enabled": true,
+   "last_run": "2026-06-10T07:23:21Z",
+   "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Business/Business-Taxes-Licenses-Permits/Opened-and-Closed-Business-Accounts \u2014 403 Client Error: Forbidden for url: https://www.oaklandca.gov/Business/Business-Taxes-Licenses-Permits/Opened-and-Closed-Business-Accounts"
   },
   "bls_oakland_unemployment": {
-   "status": "seeded"
+   "status": "ok",
+   "name": "Unemployment Rate \u2014 Oakland City & East Bay (BLS LAUS)",
+   "type": "bls",
+   "category": "employment",
+   "schedule": "monthly",
+   "output": "employment_unemployment.json",
+   "enabled": true,
+   "last_run": "2026-06-10T07:23:34Z",
+   "last_success": "2026-06-10T07:23:35Z",
+   "records": 0,
+   "note": "0 series, 0 points; warnings: ['LAUCT0653000000000003', 'LAUMT063608400000003']",
+   "error": null
   },
   "bls_oakland_jobs": {
-   "status": "seeded"
+   "status": "ok",
+   "name": "Total Nonfarm Jobs \u2014 East Bay (BLS CES)",
+   "type": "bls",
+   "category": "employment",
+   "schedule": "monthly",
+   "output": "employment_jobs.json",
+   "enabled": true,
+   "last_run": "2026-06-10T07:23:35Z",
+   "last_success": "2026-06-10T07:23:35Z",
+   "records": 120,
+   "note": "1 series, 120 points; warnings: ['Year range has been reduced to the system-allowed limit of 10 years.']",
+   "error": null
   },
   "census_business_formation": {
-   "status": "seeded"
+   "status": "error",
+   "name": "Business Formation Statistics \u2014 California (U.S. Census)",
+   "type": "census_bfs",
+   "category": "business_activity",
+   "schedule": "monthly",
+   "output": "business_formation.json",
+   "enabled": true,
+   "last_run": "2026-06-10T07:23:34Z",
+   "error": "Expecting value: line 2 column 1 (char 1)"
   },
   "cbre_oakland_office": {
-   "status": "seeded_verified"
+   "status": "ok",
+   "name": "Oakland Office Market Figures (CBRE)",
+   "type": "cbre_figures",
+   "category": "real_estate",
+   "schedule": "quarterly",
+   "output": "cre_office_cbre.json",
+   "enabled": true,
+   "last_run": "2026-06-10T07:23:35Z",
+   "last_success": "2026-06-10T07:25:30Z",
+   "records": 3,
+   "note": "1 new quarters, 3 total, 9 misses",
+   "error": null
   },
   "cushman_oakland_marketbeat": {
-   "status": "seeded_verified"
+   "status": "ok",
+   "name": "East Bay MarketBeats \u2014 Office/Industrial/Retail (Cushman & Wakefield)",
+   "type": "cushman_marketbeat",
+   "category": "real_estate",
+   "schedule": "quarterly",
+   "output": "cre_cushman.json",
+   "enabled": true,
+   "last_run": "2026-06-10T07:25:30Z",
+   "last_success": "2026-06-10T07:25:31Z",
+   "records": 6,
+   "note": "3 segments parsed this run",
+   "error": null
   },
   "oakland_cash_management": {
-   "status": "seeded"
+   "status": "error",
+   "name": "Cash Management Reports (Oakland Finance Dept.)",
+   "type": "oakland_finance_pdf",
+   "category": "city_finance",
+   "schedule": "quarterly",
+   "output": "city_cash.json",
+   "enabled": true,
+   "last_run": "2026-06-10T07:25:31Z",
+   "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Cash-Management-Reports \u2014 403 Client Error: Forbidden for url: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Cash-Management-Reports"
   },
   "oakland_revenue_expenditure": {
-   "status": "seeded"
+   "status": "error",
+   "name": "Revenue & Expenditure Reports (Oakland Finance Dept.)",
+   "type": "oakland_finance_pdf",
+   "category": "city_finance",
+   "schedule": "quarterly",
+   "output": "city_revenue.json",
+   "enabled": true,
+   "last_run": "2026-06-10T07:25:44Z",
+   "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Revenue-Expenditure-Reports \u2014 403 Client Error: Forbidden for url: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Revenue-Expenditure-Reports"
   },
   "oakland_building_permits": {
    "name": "Building Permits (Oakland Open Data Portal)",

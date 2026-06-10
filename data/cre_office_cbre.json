@@ -1,7 +1,6 @@
 {
- "status": "verified_seed",
+ "status": "live",
  "source": "CBRE Research \u2014 Oakland Figures",
- "note": "Figures hand-verified from public CBRE/C&W pages on 2026-06-09; the pipeline extends this series automatically each quarter.",
  "points": [
   {
    "quarter": "2024-Q1",
@@ -13,6 +12,15 @@
    "retrieved": "2026-06-09"
   },
   {
+   "quarter": "2024-Q4",
+   "segment": "office",
+   "vacancy_pct": 23.6,
+   "source_url": "https://www.cbre.com/insights/figures/oakland-office-figures-q4-2024",
+   "retrieved": "2026-06-10",
+   "net_absorption_sf": -14683.0,
+   "asking_rent_psf": 4.05
+  },
+  {
    "quarter": "2026-Q1",
    "segment": "office",
    "vacancy_pct": 25.6,
@@ -21,5 +29,17 @@
    "source_url": "https://www.cbre.com/insights/figures/oakland-office-figures-q1-2026",
    "retrieved": "2026-06-09"
   }
- ]
+ ],
+ "failures": [
+  "2026-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2026 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2026",
+  "2025-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2025 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2025",
+  "2025-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2025 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2025",
+  "2025-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2025 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2025",
+  "2025-Q1: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q1-2025 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q1-2025",
+  "2024-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2024 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2024",
+  "2024-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2024 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2024",
+  "2023-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2023 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2023",
+  "2023-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2023 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2023"
+ ],
+ "generated_at": "2026-06-10T07:25:30Z"
 }
