@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Sources — Oakland Pulse Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<style>
+:root{--oak:#16352A;--paper:#F7F8F4;--ink:#15201B;--crane:#E0A526;--bay:#3E6B8C;
+  --brick:#B5483A;--line:#D8DDD3;--muted:#5C6A61;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.55}
+header{background:var(--oak);color:var(--paper);padding:16px 28px;border-bottom:3px solid var(--crane);
+  display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+header h1{font-family:'Archivo',sans-serif;font-weight:800;font-stretch:115%;font-size:20px;letter-spacing:.04em}
+header a{color:var(--crane);font-size:13px}
+main{max-width:1100px;margin:0 auto;padding:28px 20px 80px}
+h2{font-family:'Archivo',sans-serif;font-stretch:110%;color:var(--oak);font-size:19px;margin:30px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  padding:8px 10px;border-bottom:2px solid var(--line)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:12.5px}
+.pill{font-size:10px;font-weight:600;letter-spacing:.08em;padding:2.5px 8px;border-radius:3px;text-transform:uppercase;white-space:nowrap}
+.ok{background:#E2EFE5;color:#1F5B33}.err{background:#F6E0DD;color:#8A2F24}
+.off{background:#ECEEE8;color:#5C6A61}.seed{background:#FBEFD4;color:#8A6210}
+.verif{background:#E3ECF3;color:#2E5570}
+ol li,ul li{margin:7px 0 7px 20px}
+code{font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#EFF1E9;padding:1px 5px;border-radius:3px}
+pre{background:#0E241C;color:#D9E5DD;padding:14px 16px;border-radius:8px;font-size:12.5px;
+  overflow-x:auto;font-family:'IBM Plex Mono',monospace;line-height:1.5}
+.note{font-size:13px;color:var(--muted)}
+.btn{display:inline-block;background:var(--oak);color:var(--paper);padding:8px 16px;border-radius:6px;
+  text-decoration:none;font-size:13.5px;font-weight:500;margin:4px 8px 4px 0}
+.btn.gold{background:var(--crane);color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+  <h1>OAKLAND—PULSE <span style="color:var(--crane)">/ ADMIN</span></h1>
+  <a href="index.html">← back to dashboard</a>
+</header>
+<main>
+
+<div class="card">
+  <b>Every dataset on the dashboard is listed below.</b> The list comes from one
+  plain-text file, <code>config/sources.yaml</code>, which any administrator can
+  edit in the browser — no programming required.
+  <div style="margin-top:10px">
+    <a class="btn gold" id="editLink" href="#" target="_blank" rel="noopener">✎ Edit sources.yaml on GitHub</a>
+    <a class="btn" id="runLink" href="#" target="_blank" rel="noopener">▶ Run data refresh now</a>
+  </div>
+  <p class="note" style="margin-top:8px">Buttons link into the repository once you set
+  the repo URL below in this file's <code>REPO</code> variable (one line).</p>
+</div>
+
+<h2>Source registry &amp; health</h2>
+<div class="card" style="padding:6px 8px">
+<table id="tbl">
+  <thead><tr><th>Source</th><th>Category</th><th>Type</th><th>Cadence</th>
+    <th>Status</th><th>Last success</th><th>Notes</th></tr></thead>
+  <tbody><tr><td colspan="7">Loading…</td></tr></tbody>
+</table>
+</div>
+<p class="note">Status meanings — <span class="pill ok">OK</span> last pipeline run
+succeeded · <span class="pill err">Error</span> last run failed (dashboard keeps the
+previous good data) · <span class="pill seed">Seeded</span> placeholder data, pipeline
+hasn't run yet · <span class="pill verif">Verified seed</span> real hand-checked
+figures · <span class="pill off">Disabled</span> paused in the registry.</p>
+
+<h2>How to edit sources (non-technical guide)</h2>
+<div class="card">
+<p><b>Pause or resume a source</b></p>
+<ol>
+  <li>Click <i>Edit sources.yaml on GitHub</i> above, then the pencil icon.</li>
+  <li>Find the source by its <code>name:</code> line.</li>
+  <li>Change <code>enabled: true</code> to <code>enabled: false</code> (or back).</li>
+  <li>Click <b>Commit changes</b>. Done — the next refresh respects it.</li>
+</ol>
+<p style="margin-top:14px"><b>Point a source at a new URL</b> (e.g. the City moves a page)</p>
+<ol>
+  <li>Edit the file the same way and replace the <code>url:</code> value.</li>
+  <li>Commit. Nothing else needs to change.</li>
+</ol>
+<p style="margin-top:14px"><b>Add a new dataset from any open-data portal</b></p>
+<p>Copy this block to the bottom of the file, fill in the three CAPITALIZED parts,
+and commit:</p>
+<pre>  - id: my_new_dataset
+    name: HUMAN-READABLE NAME
+    category: business_activity     # or employment / real_estate / city_finance
+    type: socrata
+    enabled: true
+    schedule: daily
+    output: my_new_dataset.json
+    params:
+      domain: data.oaklandca.gov    # or data.acgov.org, data.ca.gov, ...
+      dataset_id: ABCD-1234         # from the dataset's "API" button
+      soql: "$limit=20000"
+      date_field: DATE_COLUMN_NAME  # enables an automatic monthly trend chart</pre>
+<p class="note">For new <i>kinds</i> of sources (a different PDF format, a new
+publisher), a developer adds a small fetcher in <code>pipeline/fetchers/</code> —
+the registry pattern keeps that a one-file change.</p>
+</div>
+
+<h2>Verification checklist (first run)</h2>
+<div class="card">
+<ul>
+  <li><b>BLS series IDs</b> — confirm the two LAUS/CES series IDs in
+    <code>sources.yaml</code> at <a href="https://data.bls.gov/series-report"
+    target="_blank" rel="noopener">data.bls.gov/series-report</a>. If a series is wrong,
+    the table above will show a warning after the first run; paste the corrected ID.</li>
+  <li><b>Optional keys</b> — add repository secrets <code>BLS_API_KEY</code>
+    (free, higher limits) and <code>FRED_API_KEY</code> (only if you enable FRED sources).</li>
+  <li><b>Publisher courtesy</b> — CBRE and Cushman &amp; Wakefield pages are scraped
+    gently (one page per quarter, cached). If they block automated access, figures can
+    be entered by hand in the data JSON, or sourced via a research subscription.</li>
+</ul>
+</div>
+
+<script>
+"use strict";
+// ── Set this once after creating the GitHub repository ──
+const REPO = "https://github.com/Visraant/oakland-pulse";
+
+if(REPO){
+  document.getElementById("editLink").href = REPO + "/edit/main/config/sources.yaml";
+  document.getElementById("runLink").href  = REPO + "/actions/workflows/update-data.yml";
+}
+
+const pills = {ok:["ok","OK"], error:["err","Error"], disabled:["off","Disabled"],
+  seeded:["seed","Seeded"], seeded_verified:["verif","Verified seed"]};
+
+(async function(){
+  const [yamlText, meta] = await Promise.all([
+    fetch("config/sources.yaml").then(r=>r.text()).catch(()=>null),
+    fetch("data/meta.json").then(r=>r.json()).catch(()=>({sources:{}})),
+  ]);
+  const sources = yamlText ? jsyaml.load(yamlText).sources : [];
+  const tb = document.querySelector("#tbl tbody");
+  tb.innerHTML = "";
+  for(const s of sources){
+    const m = meta.sources?.[s.id] || {};
+    const status = s.enabled===false ? "disabled" : (m.status || "seeded");
+    const [cls, txt] = pills[status] || ["seed", status];
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><b>${s.name}</b><br><span class="mono note">${s.id} → ${s.output}</span>
+        ${s.url?`<br><a class="note" href="${s.url}" target="_blank" rel="noopener">source page ↗</a>`:""}</td>
+      <td>${(s.category||"").replace("_"," ")}</td>
+      <td class="mono">${s.type}</td>
+      <td>${s.schedule||""}</td>
+      <td><span class="pill ${cls}">${txt}</span>
+        ${m.error?`<div class="note" style="color:#8A2F24;max-width:220px">${m.error}</div>`:""}</td>
+      <td class="mono">${m.last_success||"—"}</td>
+      <td class="note" style="max-width:240px">${m.note||s.notes||""}</td>`;
+    tb.appendChild(tr);
+  }
+})();
+</script>
+</main>
+</body>
+</html>

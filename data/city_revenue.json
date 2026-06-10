@@ -1,0 +1,278 @@
+{
+ "status": "sample",
+ "source": "SAMPLE DATA \u2014 run the pipeline to parse Finance Dept. PDFs",
+ "report_kind": "revenue_expenditure",
+ "reports": [
+  {
+   "label": "R&E Report FY22-Q1",
+   "url": "#",
+   "figures": {
+    "property_tax": 100376169,
+    "sales_tax": 18806892,
+    "business_license_tax": 25376520,
+    "real_estate_transfer_tax": 19815181,
+    "transient_occupancy_tax": 7676387,
+    "utility_consumption_tax": 11193501,
+    "parking_tax": 5474479,
+    "total_revenue": 188719129
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY22-Q2",
+   "url": "#",
+   "figures": {
+    "property_tax": 88007790,
+    "sales_tax": 15897893,
+    "business_license_tax": 30363424,
+    "real_estate_transfer_tax": 25286271,
+    "transient_occupancy_tax": 8078729,
+    "utility_consumption_tax": 12131675,
+    "parking_tax": 5162685,
+    "total_revenue": 184928467
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY22-Q3",
+   "url": "#",
+   "figures": {
+    "property_tax": 108340590,
+    "sales_tax": 19768435,
+    "business_license_tax": 30582241,
+    "real_estate_transfer_tax": 21558998,
+    "transient_occupancy_tax": 6984833,
+    "utility_consumption_tax": 13290548,
+    "parking_tax": 5339056,
+    "total_revenue": 205864701
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY22-Q4",
+   "url": "#",
+   "figures": {
+    "property_tax": 112140252,
+    "sales_tax": 19018684,
+    "business_license_tax": 27244899,
+    "real_estate_transfer_tax": 19926042,
+    "transient_occupancy_tax": 7570136,
+    "utility_consumption_tax": 15226752,
+    "parking_tax": 4760028,
+    "total_revenue": 205886793
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY23-Q1",
+   "url": "#",
+   "figures": {
+    "property_tax": 94843616,
+    "sales_tax": 17889862,
+    "business_license_tax": 25685059,
+    "real_estate_transfer_tax": 20027812,
+    "transient_occupancy_tax": 6468143,
+    "utility_consumption_tax": 12483873,
+    "parking_tax": 5970813,
+    "total_revenue": 183369178
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY23-Q2",
+   "url": "#",
+   "figures": {
+    "property_tax": 92642613,
+    "sales_tax": 21175548,
+    "business_license_tax": 25943808,
+    "real_estate_transfer_tax": 24101332,
+    "transient_occupancy_tax": 7379116,
+    "utility_consumption_tax": 14150034,
+    "parking_tax": 4561500,
+    "total_revenue": 189953951
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY23-Q3",
+   "url": "#",
+   "figures": {
+    "property_tax": 92083216,
+    "sales_tax": 17617550,
+    "business_license_tax": 32789301,
+    "real_estate_transfer_tax": 22340347,
+    "transient_occupancy_tax": 8081168,
+    "utility_consumption_tax": 14916879,
+    "parking_tax": 5115989,
+    "total_revenue": 192944450
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY23-Q4",
+   "url": "#",
+   "figures": {
+    "property_tax": 94598672,
+    "sales_tax": 18873729,
+    "business_license_tax": 27226862,
+    "real_estate_transfer_tax": 25386396,
+    "transient_occupancy_tax": 8424990,
+    "utility_consumption_tax": 15900723,
+    "parking_tax": 5550447,
+    "total_revenue": 195961819
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY24-Q1",
+   "url": "#",
+   "figures": {
+    "property_tax": 103003056,
+    "sales_tax": 18604951,
+    "business_license_tax": 31035613,
+    "real_estate_transfer_tax": 21390650,
+    "transient_occupancy_tax": 7153493,
+    "utility_consumption_tax": 13236007,
+    "parking_tax": 4705889,
+    "total_revenue": 199129659
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY24-Q2",
+   "url": "#",
+   "figures": {
+    "property_tax": 115371695,
+    "sales_tax": 18144072,
+    "business_license_tax": 30282116,
+    "real_estate_transfer_tax": 23552381,
+    "transient_occupancy_tax": 7881795,
+    "utility_consumption_tax": 13400820,
+    "parking_tax": 5468146,
+    "total_revenue": 214101025
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY24-Q3",
+   "url": "#",
+   "figures": {
+    "property_tax": 114307918,
+    "sales_tax": 22496155,
+    "business_license_tax": 34262124,
+    "real_estate_transfer_tax": 23665963,
+    "transient_occupancy_tax": 8139814,
+    "utility_consumption_tax": 16223106,
+    "parking_tax": 5048302,
+    "total_revenue": 224143382
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY24-Q4",
+   "url": "#",
+   "figures": {
+    "property_tax": 115109972,
+    "sales_tax": 17267241,
+    "business_license_tax": 29040089,
+    "real_estate_transfer_tax": 25134920,
+    "transient_occupancy_tax": 7108056,
+    "utility_consumption_tax": 14211031,
+    "parking_tax": 5670819,
+    "total_revenue": 213542128
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY25-Q1",
+   "url": "#",
+   "figures": {
+    "property_tax": 109114597,
+    "sales_tax": 20197699,
+    "business_license_tax": 32939654,
+    "real_estate_transfer_tax": 24804869,
+    "transient_occupancy_tax": 8478938,
+    "utility_consumption_tax": 13082484,
+    "parking_tax": 5386197,
+    "total_revenue": 214004438
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY25-Q2",
+   "url": "#",
+   "figures": {
+    "property_tax": 115661168,
+    "sales_tax": 20808671,
+    "business_license_tax": 30532874,
+    "real_estate_transfer_tax": 25227015,
+    "transient_occupancy_tax": 8524693,
+    "utility_consumption_tax": 15534593,
+    "parking_tax": 5494702,
+    "total_revenue": 221783716
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY25-Q3",
+   "url": "#",
+   "figures": {
+    "property_tax": 106422109,
+    "sales_tax": 22726403,
+    "business_license_tax": 33362548,
+    "real_estate_transfer_tax": 24864872,
+    "transient_occupancy_tax": 7628862,
+    "utility_consumption_tax": 15823117,
+    "parking_tax": 5841773,
+    "total_revenue": 216669684
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY25-Q4",
+   "url": "#",
+   "figures": {
+    "property_tax": 113192387,
+    "sales_tax": 17809054,
+    "business_license_tax": 30980698,
+    "real_estate_transfer_tax": 24428167,
+    "transient_occupancy_tax": 7581068,
+    "utility_consumption_tax": 13181463,
+    "parking_tax": 5762616,
+    "total_revenue": 212935453
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY26-Q1",
+   "url": "#",
+   "figures": {
+    "property_tax": 105589919,
+    "sales_tax": 21879703,
+    "business_license_tax": 28449997,
+    "real_estate_transfer_tax": 24633506,
+    "transient_occupancy_tax": 7016282,
+    "utility_consumption_tax": 15103917,
+    "parking_tax": 5292712,
+    "total_revenue": 207966036
+   },
+   "parsed_lines": 8
+  },
+  {
+   "label": "R&E Report FY26-Q2",
+   "url": "#",
+   "figures": {
+    "property_tax": 115491918,
+    "sales_tax": 19990768,
+    "business_license_tax": 36113251,
+    "real_estate_transfer_tax": 24104430,
+    "transient_occupancy_tax": 7699873,
+    "utility_consumption_tax": 16522874,
+    "parking_tax": 6528744,
+    "total_revenue": 226451858
+   },
+   "parsed_lines": 8
+  }
+ ],
+ "failures": []
+}

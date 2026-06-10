@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oakland Pulse — East Bay Economic Monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.32.0/plotly.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root{
+  --oak:#16352A;        /* deep oak green */
+  --oak-2:#0E241C;
+  --paper:#F7F8F4;      /* paper white */
+  --ink:#15201B;
+  --crane:#E0A526;      /* port-crane gold */
+  --bay:#3E6B8C;        /* bay slate */
+  --brick:#B5483A;
+  --line:#D8DDD3;
+  --muted:#5C6A61;
+  --card:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.5}
+a{color:var(--bay)}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+/* ---------- pulse strip ---------- */
+header{background:var(--oak);color:var(--paper);position:sticky;top:0;z-index:1000;border-bottom:3px solid var(--crane)}
+.strip{display:flex;align-items:stretch;gap:0;overflow-x:auto;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.brand{padding:14px 22px;border-right:1px solid rgba(255,255,255,.15);flex:0 0 auto}
+.brand h1{font-family:'Archivo',sans-serif;font-weight:800;font-stretch:115%;font-size:21px;letter-spacing:.04em;line-height:1.1}
+.brand h1 span{color:var(--crane)}
+.brand small{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:2px}
+.tick{display:flex;align-items:center;gap:11px;padding:10px 18px;border-right:1px solid rgba(255,255,255,.12);flex:0 0 auto;cursor:pointer;transition:background .15s}
+.tick:hover{background:rgba(255,255,255,.07)}
+.tick canvas{display:block}
+.tick .v{font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:500;line-height:1.1}
+.tick .l{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.62);white-space:nowrap}
+.tick .d{font-size:10px;color:var(--crane)}
+
+/* ---------- shell ---------- */
+.shell{display:grid;grid-template-columns:208px 1fr;max-width:1340px;margin:0 auto;gap:0}
+nav{padding:26px 0 26px 22px;position:sticky;top:76px;align-self:start;height:fit-content}
+nav a{display:block;padding:8px 14px;margin:2px 0;color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:500;border-left:2px solid transparent}
+nav a:hover{color:var(--ink)}
+nav a.active{color:var(--oak);border-left-color:var(--crane);font-weight:600}
+nav .nav-head{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:18px 14px 6px}
+main{padding:26px 26px 80px;min-width:0}
+
+/* ---------- controls ---------- */
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card)}
+.seg button{border:0;background:transparent;padding:7px 13px;font:inherit;font-size:13px;cursor:pointer;color:var(--muted)}
+.seg button.on{background:var(--oak);color:var(--paper)}
+.seg button:focus-visible,nav a:focus-visible,.tick:focus-visible{outline:2px solid var(--crane);outline-offset:-2px}
+.ctl-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- panels ---------- */
+section{margin-bottom:46px;scroll-margin-top:96px}
+.sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--oak);padding-bottom:8px;margin-bottom:16px}
+.sec-head h2{font-family:'Archivo',sans-serif;font-weight:700;font-stretch:110%;font-size:21px;color:var(--oak)}
+.sec-head .src{font-size:12px;color:var(--muted);margin-left:auto;text-align:right}
+.grid{display:grid;gap:16px}
+.grid.two{grid-template-columns:1fr 1fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 16px 8px;position:relative}
+.card h3{font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card .sub{font-size:12px;color:var(--muted);margin-bottom:6px}
+.chart{width:100%;height:330px}
+.chart.tall{height:380px}
+.badge{font-size:9.5px;font-weight:600;letter-spacing:.1em;padding:2.5px 7px;border-radius:3px;text-transform:uppercase}
+.badge.sample{background:#FBEFD4;color:#8A6210;border:1px solid #E8CF96}
+.badge.verified{background:#E3ECF3;color:#2E5570;border:1px solid #BBD0DF}
+.badge.live{background:#E2EFE5;color:#1F5B33;border:1px solid #B9D8C2}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:16px}
+.kpi{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--crane);border-radius:8px;padding:14px 16px}
+.kpi .n{font-family:'IBM Plex Mono',monospace;font-size:27px;font-weight:500;color:var(--oak)}
+.kpi .t{font-size:12px;color:var(--muted);margin-top:2px}
+.kpi .s{font-size:11px;color:var(--muted);margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
+td{padding:7px 10px;border-bottom:1px solid var(--line)}
+td.num{font-family:'IBM Plex Mono',monospace;text-align:right}
+tr:hover td{background:#F1F3EC}
+#map{height:480px;border-radius:8px;border:1px solid var(--line)}
+.note{font-size:12.5px;color:var(--muted);background:#EFF1E9;border:1px solid var(--line);border-radius:6px;padding:10px 14px;margin:10px 0}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:18px 4px;font-size:12.5px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+footer a{color:var(--oak);font-weight:500}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  nav{position:static;display:flex;overflow-x:auto;padding:10px 14px;gap:4px;border-bottom:1px solid var(--line);background:var(--card)}
+  nav .nav-head{display:none}
+  nav a{white-space:nowrap;border-left:0;border-bottom:2px solid transparent}
+  nav a.active{border-bottom-color:var(--crane)}
+  .grid.two{grid-template-columns:1fr}
+  main{padding:18px 14px 60px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="strip" id="pulseStrip">
+    <div class="brand">
+      <h1>OAKLAND<span>—</span>PULSE</h1>
+      <small>East Bay Economic Monitor</small>
+    </div>
+    <!-- ticker KPIs injected here -->
+  </div>
+</header>
+
+<div class="shell">
+<nav id="nav">
+  <div class="nav-head">Sections</div>
+  <a href="#overview" class="active">Overview</a>
+  <a href="#employment">Employment</a>
+  <a href="#business">Business Activity</a>
+  <a href="#realestate">Commercial Real Estate</a>
+  <a href="#finance">City Finances</a>
+  <a href="#mapsec">Map</a>
+  <div class="nav-head">Manage</div>
+  <a href="admin.html">Data sources ↗</a>
+</nav>
+
+<main>
+  <div class="controls">
+    <span class="ctl-label">Time range</span>
+    <div class="seg" id="rangeSeg">
+      <button data-r="12">1Y</button>
+      <button data-r="36" class="on">3Y</button>
+      <button data-r="60">5Y</button>
+      <button data-r="9999">All</button>
+    </div>
+    <span class="ctl-label">Geography</span>
+    <div class="seg" id="geoSeg">
+      <button data-g="oakland" class="on">Oakland</button>
+      <button data-g="eastbay">East Bay</button>
+    </div>
+  </div>
+
+  <section id="overview">
+    <div class="sec-head"><h2>Overview</h2>
+      <div class="src">Headline indicators across all data domains</div></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="note" id="seedNote" hidden>
+      Some panels below show <b>SAMPLE</b> placeholder data — the dashboard is fully
+      wired, but those series are synthetic until the data pipeline runs for the
+      first time. Panels marked <b>VERIFIED</b> contain real published figures.
+    </div>
+  </section>
+
+  <section id="employment">
+    <div class="sec-head"><h2>Employment</h2>
+      <div class="src">U.S. Bureau of Labor Statistics — LAUS &amp; CES</div></div>
+    <div class="grid two">
+      <div class="card"><h3>Unemployment rate <span class="badge" data-badge="unemp"></span></h3>
+        <div class="sub">Monthly, not seasonally adjusted</div>
+        <div id="chUnemp" class="chart"></div></div>
+      <div class="card"><h3>Total nonfarm jobs <span class="badge" data-badge="jobs"></span></h3>
+        <div class="sub">East Bay metropolitan division, thousands</div>
+        <div id="chJobs" class="chart"></div></div>
+    </div>
+  </section>
+
+  <section id="business">
+    <div class="sec-head"><h2>Business Activity</h2>
+      <div class="src">Oakland Finance Dept. business tax accounts · U.S. Census BFS</div></div>
+    <div class="grid two">
+      <div class="card"><h3>Business accounts opened vs. closed <span class="badge" data-badge="accts"></span></h3>
+        <div class="sub">Monthly counts from the City's opened/closed account lists</div>
+        <div id="chAccounts" class="chart"></div></div>
+      <div class="card"><h3>Net business formation <span class="badge" data-badge="accts2"></span></h3>
+        <div class="sub">Openings minus closings, with state context</div>
+        <div id="chNet" class="chart"></div></div>
+    </div>
+    <div class="card" style="margin-top:16px"><h3>Recent account activity <span class="badge" data-badge="accttab"></span></h3>
+      <div class="sub">Latest parsed records (name · ZIP) — full lists in the City PDFs</div>
+      <div style="max-height:300px;overflow:auto"><table id="acctTable">
+        <thead><tr><th>Month</th><th>Status</th><th>Business</th><th>ZIP</th></tr></thead>
+        <tbody></tbody></table></div>
+      <p class="sub" id="acctTableNote" style="padding:8px 2px"></p>
+    </div>
+  </section>
+
+  <section id="realestate">
+    <div class="sec-head"><h2>Commercial Real Estate</h2>
+      <div class="src">CBRE Research · Cushman &amp; Wakefield MarketBeats</div></div>
+    <div class="grid two">
+      <div class="card"><h3>Vacancy by segment <span class="badge" data-badge="cre"></span></h3>
+        <div class="sub">Oakland office (CBRE) and East Bay segments (C&amp;W), quarterly</div>
+        <div id="chVacancy" class="chart"></div></div>
+      <div class="card"><h3>Office asking rent &amp; absorption <span class="badge" data-badge="cre2"></span></h3>
+        <div class="sub">$/sq.ft. full-service gross (line) · net absorption sq.ft. (bars)</div>
+        <div id="chRent" class="chart"></div></div>
+    </div>
+    <div class="card" style="margin-top:16px"><h3>Latest published figures</h3>
+      <table id="creTable"><thead><tr><th>Segment</th><th>Period</th>
+        <th style="text-align:right">Vacancy</th><th>Publisher</th><th>Source</th></tr></thead>
+        <tbody></tbody></table></div>
+  </section>
+
+  <section id="finance">
+    <div class="sec-head"><h2>City Finances</h2>
+      <div class="src">Oakland Finance Dept. — Revenue &amp; Expenditure, Cash Management</div></div>
+    <div class="grid two">
+      <div class="card"><h3>General Purpose Fund revenue by category <span class="badge" data-badge="rev"></span></h3>
+        <div class="sub">Includes business license (gross receipts) tax — click legend to filter</div>
+        <div id="chRevenue" class="chart tall"></div></div>
+      <div class="card"><h3>City cash &amp; investment position <span class="badge" data-badge="cash"></span></h3>
+        <div class="sub">Total portfolio per quarterly cash management report</div>
+        <div id="chCash" class="chart tall"></div></div>
+    </div>
+  </section>
+
+  <section id="mapsec">
+    <div class="sec-head"><h2>Map — business activity by ZIP</h2>
+      <div class="src">Trailing 12 months of opened/closed accounts · circle = volume, color = net</div></div>
+    <div class="controls">
+      <span class="ctl-label">Metric</span>
+      <div class="seg" id="mapSeg">
+        <button data-m="opened" class="on">Openings</button>
+        <button data-m="closed">Closings</button>
+        <button data-m="net">Net</button>
+      </div>
+      <span class="badge" data-badge="map"></span>
+    </div>
+    <div id="map"></div>
+    <p class="sub" style="margin-top:8px">ZIP markers are placed at approximate centroids for orientation, not parcel-level geocoding.</p>
+  </section>
+
+  <footer>
+    <span id="footMeta">Loading pipeline status…</span>
+    <a href="admin.html">Manage data sources</a>
+    <span>Built for the City of Oakland · data remains property of its publishers</span>
+  </footer>
+</main>
+</div>
+
+<script>
+"use strict";
+/* ============ palette & plot defaults ============ */
+const C = {oak:"#16352A", crane:"#E0A526", bay:"#3E6B8C", brick:"#B5483A",
+           muted:"#5C6A61", line:"#D8DDD3", paper:"#F7F8F4"};
+const SERIES_COLORS = [C.oak, C.crane, C.bay, C.brick, "#7A8B5E", "#8C5E7A"];
+const FONT = {family:"IBM Plex Sans, sans-serif", color:"#15201B", size:12};
+const PLOT_CFG = {displayModeBar:"hover", modeBarButtonsToRemove:
+  ["lasso2d","select2d","autoScale2d"], displaylogo:false, responsive:true};
+function layout(extra={}){
+  return Object.assign({
+    font:FONT, paper_bgcolor:"rgba(0,0,0,0)", plot_bgcolor:"rgba(0,0,0,0)",
+    margin:{l:52,r:14,t:8,b:38}, hovermode:"x unified",
+    xaxis:{gridcolor:C.line, zeroline:false},
+    yaxis:{gridcolor:C.line, zeroline:false},
+    legend:{orientation:"h", y:-0.18, font:{size:11}},
+  }, extra);
+}
+
+/* ============ state & data loading ============ */
+const state = {range:36, geo:"oakland", mapMetric:"opened", data:{}};
+const FILES = {
+  unemp:"data/employment_unemployment.json",
+  jobs:"data/employment_jobs.json",
+  accounts:"data/business_accounts.json",
+  bfs:"data/business_formation.json",
+  cbre:"data/cre_office_cbre.json",
+  cbreOther:"data/cre_other_cbre.json",
+  cushman:"data/cre_cushman.json",
+  revenue:"data/city_revenue.json",
+  cash:"data/city_cash.json",
+  meta:"data/meta.json",
+};
+async function loadAll(){
+  const entries = await Promise.all(Object.entries(FILES).map(async ([k,f])=>{
+    try{ const r = await fetch(f); return [k, r.ok ? await r.json() : null]; }
+    catch(e){ return [k,null]; }
+  }));
+  for(const [k,v] of entries) state.data[k]=v;
+}
+
+/* ============ helpers ============ */
+function cutoff(points){
+  if(!points || state.range>=9999) return points||[];
+  return points.slice(-state.range);
+}
+function badge(key, status){
+  document.querySelectorAll(`[data-badge="${key}"]`).forEach(el=>{
+    const map = {sample:["sample","Sample"], verified_seed:["verified","Verified"],
+                 live:["live","Live"], failed:["sample","Stale"]};
+    const [cls,txt] = map[status]||["sample","—"];
+    el.className = "badge "+cls; el.textContent = txt;
+    if(status==="sample") document.getElementById("seedNote").hidden = false;
+  });
+}
+const fmt = {
+  pct:v=>v?.toFixed?v.toFixed(1)+"%":"—",
+  num:v=>v==null?"—":Number(v).toLocaleString(),
+  m:v=>v==null?"—":"$"+(v/1e6).toFixed(1)+"M",
+};
+
+/* ============ pulse strip ============ */
+function spark(canvas, values, color){
+  const dpr = window.devicePixelRatio||1, w=72, h=26;
+  canvas.width=w*dpr; canvas.height=h*dpr;
+  canvas.style.width=w+"px"; canvas.style.height=h+"px";
+  const ctx = canvas.getContext("2d"); ctx.scale(dpr,dpr);
+  if(!values||values.length<2) return;
+  const min=Math.min(...values), max=Math.max(...values), span=(max-min)||1;
+  ctx.beginPath();
+  values.forEach((v,i)=>{
+    const x = i/(values.length-1)*w, y = h-3-((v-min)/span)*(h-6);
+    i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+  });
+  ctx.strokeStyle=color; ctx.lineWidth=1.6; ctx.stroke();
+}
+function tick(label, value, delta, values, color, target){
+  const el = document.createElement("div");
+  el.className="tick"; el.tabIndex=0;
+  el.innerHTML = `<canvas></canvas><div><div class="v">${value}</div>
+    <div class="l">${label}</div></div>${delta?`<div class="d">${delta}</div>`:""}`;
+  el.addEventListener("click",()=>location.hash=target);
+  document.getElementById("pulseStrip").appendChild(el);
+  spark(el.querySelector("canvas"), values, color);
+}
+function buildStrip(){
+  const d = state.data;
+  const strip = document.getElementById("pulseStrip");
+  strip.querySelectorAll(".tick").forEach(t=>t.remove());
+
+  const cbrePts = (d.cbre?.points||[]).filter(p=>p.segment==="office");
+  if(cbrePts.length){
+    const last = cbrePts[cbrePts.length-1];
+    tick("Office vacancy", fmt.pct(last.vacancy_pct), last.quarter,
+         cbrePts.map(p=>p.vacancy_pct), C.crane, "#realestate");
+  }
+  const un = d.unemp?.series?.[0]?.points||[];
+  if(un.length){
+    tick("Unemployment", fmt.pct(un[un.length-1].value),
+         un[un.length-1].date, cutoff(un).map(p=>p.value), "#9FD4B5", "#employment");
+  }
+  const acc = d.accounts?.monthly||[];
+  const accValid = acc.filter(m=>m.net!=null);
+  if(accValid.length){
+    const last = accValid[accValid.length-1];
+    tick("Net biz formation", (last.net>0?"+":"")+last.net, last.month,
+         accValid.slice(-24).map(m=>m.net), C.crane, "#business");
+  }
+  const rev = d.revenue?.reports||[];
+  if(rev.length){
+    const tot = rev.map(r=>r.figures?.total_revenue).filter(Boolean);
+    if(tot.length) tick("GPF revenue", fmt.m(tot[tot.length-1]), "latest report",
+         tot, "#9FD4B5", "#finance");
+  }
+}
+
+/* ============ KPI cards ============ */
+function buildKpis(){
+  const d = state.data, box = document.getElementById("kpis");
+  box.innerHTML="";
+  const cards = [];
+  const office = (d.cbre?.points||[]).filter(p=>p.segment==="office").at(-1);
+  if(office) cards.push([fmt.pct(office.vacancy_pct), "Oakland office vacancy",
+    office.quarter+" · CBRE"]);
+  const cush = d.cushman?.points||[];
+  const retail = cush.filter(p=>p.segment==="retail").at(-1);
+  if(retail) cards.push([fmt.pct(retail.vacancy_pct), "East Bay retail vacancy",
+    (retail.period||retail.retrieved)+" · C&W"]);
+  const un = d.unemp?.series?.[0]?.points?.at(-1);
+  if(un) cards.push([fmt.pct(un.value), "Oakland unemployment", un.date+" · BLS"]);
+  const jobs = d.jobs?.series?.[0]?.points?.at(-1);
+  if(jobs) cards.push([fmt.num(jobs.value)+"K", "East Bay nonfarm jobs", jobs.date+" · BLS"]);
+  const acc = (d.accounts?.monthly||[]).filter(m=>m.opened!=null).at(-1);
+  if(acc) cards.push(["+"+fmt.num(acc.opened)+" / −"+fmt.num(acc.closed),
+    "Accounts opened / closed", acc.month+" · City of Oakland"]);
+  for(const [n,t,s] of cards){
+    const el=document.createElement("div"); el.className="kpi";
+    el.innerHTML=`<div class="n">${n}</div><div class="t">${t}</div><div class="s">${s}</div>`;
+    box.appendChild(el);
+  }
+}
+
+/* ============ charts ============ */
+function lineChart(div, seriesList, ytitle, yfmt){
+  const traces = (seriesList||[]).map((s,i)=>({
+    x:cutoff(s.points).map(p=>p.date), y:cutoff(s.points).map(p=>p.value),
+    name:s.label, mode:"lines", line:{color:SERIES_COLORS[i%6], width:2.2},
+  }));
+  Plotly.react(div, traces, layout({yaxis:{title:{text:ytitle,font:{size:11}},
+    gridcolor:C.line, tickformat:yfmt||""}}), PLOT_CFG);
+}
+function drawEmployment(){
+  const d=state.data;
+  let unempSeries = d.unemp?.series||[];
+  if(state.geo==="oakland") unempSeries = unempSeries.filter(s=>/oakland/i.test(s.label)).concat(
+      unempSeries.filter(s=>!/oakland/i.test(s.label)));
+  lineChart("chUnemp", unempSeries, "percent");
+  lineChart("chJobs", d.jobs?.series, "thousands of jobs");
+  badge("unemp", d.unemp?.status); badge("jobs", d.jobs?.status);
+}
+function drawBusiness(){
+  const d=state.data, acc=(d.accounts?.monthly||[]).filter(m=>m.opened!=null);
+  const view = state.range>=9999?acc:acc.slice(-state.range);
+  Plotly.react("chAccounts",[
+    {x:view.map(m=>m.month), y:view.map(m=>m.opened), name:"Opened",
+     type:"bar", marker:{color:C.oak}},
+    {x:view.map(m=>m.month), y:view.map(m=>m.closed), name:"Closed",
+     type:"bar", marker:{color:C.brick}},
+  ], layout({barmode:"group", yaxis:{title:{text:"accounts",font:{size:11}},gridcolor:C.line}}), PLOT_CFG);
+
+  const traces=[{x:view.map(m=>m.month), y:view.map(m=>m.net), name:"Oakland net (opened−closed)",
+     type:"bar", marker:{color:view.map(m=>m.net>=0?C.crane:C.brick)}}];
+  const bfs=d.bfs?.series?.[0];
+  if(bfs){
+    const pts=cutoff(bfs.points);
+    traces.push({x:pts.map(p=>p.date), y:pts.map(p=>p.value), name:bfs.label,
+      yaxis:"y2", mode:"lines", line:{color:C.bay, width:1.8, dash:"dot"}});
+  }
+  Plotly.react("chNet", traces, layout({
+    yaxis:{title:{text:"net accounts",font:{size:11}},gridcolor:C.line},
+    yaxis2:{overlaying:"y", side:"right", showgrid:false,
+            title:{text:"CA applications",font:{size:11}}}}), PLOT_CFG);
+
+  badge("accts", d.accounts?.status); badge("accts2", d.accounts?.status);
+  badge("accttab", d.accounts?.status); badge("map", d.accounts?.status);
+
+  // table
+  const tb=document.querySelector("#acctTable tbody"); tb.innerHTML="";
+  const rbm=d.accounts?.records_by_month||{};
+  const monthsDesc=Object.keys(rbm).sort().reverse().slice(0,3);
+  let rows=0;
+  for(const m of monthsDesc) for(const kind of ["opened","closed"])
+    for(const r of (rbm[m]?.[kind]||[]).slice(0,40)){
+      const tr=document.createElement("tr");
+      tr.innerHTML=`<td class="mono">${m}</td><td>${kind}</td>
+        <td>${(r.name||"").slice(0,70)}</td><td class="mono">${r.zip||""}</td>`;
+      tb.appendChild(tr); rows++;
+    }
+  document.getElementById("acctTableNote").textContent = rows
+    ? `Showing ${rows} parsed records from the most recent months.`
+    : "Record-level rows appear here after the pipeline parses the City's PDFs.";
+}
+function drawCre(){
+  const d=state.data;
+  const office=(d.cbre?.points||[]).filter(p=>p.segment==="office");
+  const traces=[{x:office.map(p=>p.quarter), y:office.map(p=>p.vacancy_pct),
+    name:"Oakland office (CBRE)", mode:"lines+markers",
+    line:{color:C.oak,width:2.4}, marker:{size:7}}];
+  const others=(d.cbreOther?.points||[]);
+  for(const seg of [...new Set(others.map(p=>p.segment))]){
+    const pts=others.filter(p=>p.segment===seg);
+    traces.push({x:pts.map(p=>p.quarter), y:pts.map(p=>p.vacancy_pct),
+      name:`Oakland ${seg} (CBRE)`, mode:"markers", marker:{size:9, symbol:"diamond"}});
+  }
+  const cush=d.cushman?.points||[];
+  for(const seg of [...new Set(cush.map(p=>p.segment))]){
+    const pts=cush.filter(p=>p.segment===seg);
+    traces.push({x:pts.map(p=>p.period||p.retrieved), y:pts.map(p=>p.vacancy_pct),
+      name:`East Bay ${seg} (C&W)`, mode:"markers", marker:{size:9, symbol:"square"}});
+  }
+  Plotly.react("chVacancy", traces, layout({yaxis:{title:{text:"vacancy %",font:{size:11}},
+    gridcolor:C.line, rangemode:"tozero"}}), PLOT_CFG);
+
+  Plotly.react("chRent",[
+    {x:office.map(p=>p.quarter), y:office.map(p=>p.net_absorption_sf),
+     name:"Net absorption (sf)", type:"bar",
+     marker:{color:office.map(p=>(p.net_absorption_sf||0)>=0?C.oak:C.brick)}},
+    {x:office.map(p=>p.quarter), y:office.map(p=>p.asking_rent_psf),
+     name:"Asking rent $/sf", yaxis:"y2", mode:"lines+markers",
+     line:{color:C.crane,width:2.4}},
+  ], layout({yaxis:{title:{text:"sq. ft.",font:{size:11}},gridcolor:C.line},
+    yaxis2:{overlaying:"y",side:"right",showgrid:false,
+      title:{text:"$/sf",font:{size:11}}}}), PLOT_CFG);
+
+  badge("cre", d.cbre?.status); badge("cre2", d.cbre?.status);
+
+  const tb=document.querySelector("#creTable tbody"); tb.innerHTML="";
+  const rows=[...office.map(p=>["Oakland office",p.quarter,p.vacancy_pct,"CBRE",p.source_url]),
+    ...others.map(p=>["Oakland "+p.segment,p.quarter,p.vacancy_pct,"CBRE",p.source_url]),
+    ...cush.map(p=>["East Bay "+p.segment,p.period||p.retrieved,p.vacancy_pct,"Cushman & Wakefield",p.source_url])];
+  rows.sort((a,b)=>String(b[1]).localeCompare(String(a[1])));
+  for(const [seg,per,vac,pub,url] of rows.slice(0,12)){
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${seg}</td><td class="mono">${per}</td>
+      <td class="num">${fmt.pct(vac)}</td><td>${pub}</td>
+      <td>${url?`<a href="${url}" target="_blank" rel="noopener">page ↗</a>`:""}</td>`;
+    tb.appendChild(tr);
+  }
+}
+function drawFinance(){
+  const d=state.data, reports=d.revenue?.reports||[];
+  const catLabels={property_tax:"Property tax", sales_tax:"Sales tax",
+    business_license_tax:"Business license (gross receipts)",
+    real_estate_transfer_tax:"RE transfer tax", transient_occupancy_tax:"Hotel tax",
+    utility_consumption_tax:"Utility tax", parking_tax:"Parking tax"};
+  const cats=Object.keys(catLabels);
+  const x=reports.map(r=>r.label.replace(/R&E Report\s*/,""));
+  const traces=cats.map((c,i)=>({x, y:reports.map(r=>r.figures?.[c]??null),
+    name:catLabels[c], type:"bar", marker:{color:SERIES_COLORS[i%6]}}))
+    .filter(t=>t.y.some(v=>v!=null));
+  Plotly.react("chRevenue", traces, layout({barmode:"stack",
+    yaxis:{title:{text:"$ per report period",font:{size:11}},gridcolor:C.line,
+    tickformat:"$.2s"}}), PLOT_CFG);
+  badge("rev", d.revenue?.status);
+
+  const cash=d.cash?.reports||[];
+  Plotly.react("chCash",[{x:cash.map(r=>r.label.replace(/Cash Mgmt\s*/,"")),
+    y:cash.map(r=>r.figures?.total_portfolio??null), mode:"lines+markers",
+    fill:"tozeroy", fillcolor:"rgba(22,53,42,.08)",
+    line:{color:C.oak,width:2.4}, name:"Total portfolio"}],
+    layout({yaxis:{tickformat:"$.3s",gridcolor:C.line}}), PLOT_CFG);
+  badge("cash", d.cash?.status);
+}
+
+/* ============ map ============ */
+const ZIP_CENTROIDS={ "94601":[37.776,-122.218],"94602":[37.803,-122.207],
+ "94603":[37.740,-122.172],"94605":[37.762,-122.152],"94606":[37.792,-122.243],
+ "94607":[37.807,-122.288],"94608":[37.832,-122.282],"94609":[37.834,-122.264],
+ "94610":[37.812,-122.241],"94611":[37.831,-122.213],"94612":[37.808,-122.270],
+ "94613":[37.781,-122.183],"94618":[37.844,-122.243],"94619":[37.785,-122.190],
+ "94621":[37.750,-122.198]};
+let map, mapLayer;
+function drawMap(){
+  if(!map){
+    map=L.map("map",{scrollWheelZoom:false}).setView([37.795,-122.225],12);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      {attribution:"© OpenStreetMap, © CARTO", maxZoom:18}).addTo(map);
+  }
+  if(mapLayer) mapLayer.remove();
+  mapLayer=L.layerGroup().addTo(map);
+  const zc=state.data.accounts?.zip_counts_12mo||{};
+  const metric=state.mapMetric;
+  const vals=Object.values(zc).map(v=>metric==="net"?(v.opened-v.closed):v[metric]);
+  const maxAbs=Math.max(1,...vals.map(Math.abs));
+  for(const [zip,v] of Object.entries(zc)){
+    const ll=ZIP_CENTROIDS[zip]; if(!ll) continue;
+    const val=metric==="net"?(v.opened-v.closed):v[metric];
+    const r=6+22*Math.sqrt(Math.abs(val)/maxAbs);
+    const color=metric==="closed"?C.brick:(metric==="net"&&val<0?C.brick:C.oak);
+    L.circleMarker(ll,{radius:r,color,weight:1.5,fillColor:color,fillOpacity:.35})
+     .bindTooltip(`<b>${zip}</b><br>Opened: ${v.opened} · Closed: ${v.closed}
+       <br>Net: ${v.opened-v.closed}`,{direction:"top"})
+     .addTo(mapLayer);
+  }
+}
+
+/* ============ footer & nav ============ */
+function buildFooter(){
+  const m=state.data.meta;
+  const el=document.getElementById("footMeta");
+  if(m?.last_pipeline_run)
+    el.textContent=`Pipeline last ran ${m.last_pipeline_run} (UTC).`;
+  else
+    el.textContent="Pipeline has not run yet — showing seed data.";
+}
+function wireControls(){
+  document.getElementById("rangeSeg").addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    document.querySelectorAll("#rangeSeg button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); state.range=+b.dataset.r; redraw();
+  });
+  document.getElementById("geoSeg").addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    document.querySelectorAll("#geoSeg button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); state.geo=b.dataset.g; redraw();
+  });
+  document.getElementById("mapSeg").addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    document.querySelectorAll("#mapSeg button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); state.mapMetric=b.dataset.m; drawMap();
+  });
+  const links=[...document.querySelectorAll("nav a[href^='#']")];
+  const secs=links.map(a=>document.querySelector(a.getAttribute("href")));
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(en=>{ if(en.isIntersecting){
+      links.forEach(l=>l.classList.toggle("active",
+        l.getAttribute("href")==="#"+en.target.id)); }});
+  },{rootMargin:"-30% 0px -60% 0px"});
+  secs.forEach(s=>s&&obs.observe(s));
+}
+function redraw(){drawEmployment();drawBusiness();drawCre();drawFinance();}
+
+(async function init(){
+  await loadAll();
+  buildStrip(); buildKpis(); redraw(); drawMap(); buildFooter(); wireControls();
+})();
+</script>
+</body>
+</html>

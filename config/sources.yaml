@@ -1,0 +1,175 @@
+# ============================================================
+# OAKLAND PULSE — DATA SOURCE REGISTRY
+# ============================================================
+# This file controls every dataset the dashboard pulls in.
+# A non-technical administrator can edit it directly on GitHub:
+# open the file, click the pencil icon, edit, and click
+# "Commit changes". The pipeline picks up changes on its next
+# scheduled run (or run the "Update data" workflow manually).
+#
+# Each source needs:
+#   id:        short unique name (letters, numbers, underscores)
+#   name:      human-readable label shown on the admin page
+#   category:  employment | business_activity | real_estate |
+#              city_finance | demographics
+#   type:      which fetcher to use (see list below)
+#   enabled:   true/false — flip to false to pause a source
+#   schedule:  how often the source itself updates (informational)
+#   output:    the JSON file the dashboard reads
+#   url/params: where and how to fetch (varies by type)
+#
+# Fetcher types available:
+#   socrata             — any Socrata open-data portal (data.oaklandca.gov etc.)
+#   bls                 — U.S. Bureau of Labor Statistics time-series API
+#   fred                — St. Louis Fed FRED API (needs free FRED_API_KEY secret)
+#   census_bfs          — U.S. Census Business Formation Statistics
+#   oakland_pdf_list    — City of Oakland monthly PDF lists (opened/closed accounts)
+#   oakland_finance_pdf — City of Oakland Finance report PDFs (cash mgmt, revenue)
+#   cbre_figures        — CBRE quarterly "Figures" pages (vacancy, rents, absorption)
+#   cushman_marketbeat  — Cushman & Wakefield MarketBeat pages
+# ============================================================
+
+sources:
+
+  # ---------- BUSINESS ACTIVITY ----------
+
+  - id: oakland_business_accounts
+    name: Opened & Closed Business Accounts (Oakland Finance Dept.)
+    category: business_activity
+    type: oakland_pdf_list
+    enabled: true
+    schedule: monthly
+    output: business_accounts.json
+    url: https://www.oaklandca.gov/Business/Business-Taxes-Licenses-Permits/Opened-and-Closed-Business-Accounts
+    params:
+      months_back: 36          # how many months of PDFs to keep parsed
+    notes: >
+      Monthly PDFs of new and closed business tax accounts. The fetcher
+      discovers PDF links on the page, downloads new ones, parses the
+      tables, and produces monthly open/close counts plus a record-level
+      list with addresses (used for the map).
+
+  - id: census_business_formation
+    name: Business Formation Statistics — California (U.S. Census)
+    category: business_activity
+    type: census_bfs
+    enabled: true
+    schedule: monthly
+    output: business_formation.json
+    params:
+      geo: "CA"                # state-level; county not published in BFS
+      series: "BA_BA"          # business applications
+    notes: State-level business application trend for context alongside Oakland counts.
+
+  # ---------- EMPLOYMENT ----------
+
+  - id: bls_oakland_unemployment
+    name: Unemployment Rate — Oakland City & East Bay (BLS LAUS)
+    category: employment
+    type: bls
+    enabled: true
+    schedule: monthly
+    output: employment_unemployment.json
+    params:
+      # VERIFY series IDs at https://data.bls.gov/series-report before first run.
+      # The pipeline will flag any series the API rejects on the admin page.
+      series:
+        - id: LAUCT0653000000000003
+          label: Oakland city — unemployment rate (%)
+        - id: LAUMT063608400000003
+          label: Oakland-Fremont-Hayward MD — unemployment rate (%)
+      start_year: 2015
+    notes: Local Area Unemployment Statistics. Free API; add BLS_API_KEY secret for higher limits.
+
+  - id: bls_oakland_jobs
+    name: Total Nonfarm Jobs — East Bay (BLS CES)
+    category: employment
+    type: bls
+    enabled: true
+    schedule: monthly
+    output: employment_jobs.json
+    params:
+      series:
+        - id: SMU06360840000000001
+          label: Oakland-Fremont-Hayward MD — total nonfarm jobs (thousands)
+      start_year: 2015
+    notes: Current Employment Statistics for the East Bay metropolitan division.
+
+  # ---------- COMMERCIAL REAL ESTATE ----------
+
+  - id: cbre_oakland_office
+    name: Oakland Office Market Figures (CBRE)
+    category: real_estate
+    type: cbre_figures
+    enabled: true
+    schedule: quarterly
+    output: cre_office_cbre.json
+    params:
+      url_template: "https://www.cbre.com/insights/figures/oakland-office-figures-q{q}-{year}"
+      segment: office
+      lookback_quarters: 12
+    notes: >
+      Parses the headline vacancy rate, asking rent, and net absorption from
+      each quarterly Figures page. Corporate sites occasionally block
+      automated requests — the admin page will show if a quarter failed.
+
+  - id: cushman_oakland_marketbeat
+    name: East Bay MarketBeats — Office/Industrial/Retail (Cushman & Wakefield)
+    category: real_estate
+    type: cushman_marketbeat
+    enabled: true
+    schedule: quarterly
+    output: cre_cushman.json
+    params:
+      url: https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats
+    notes: Parses headline vacancy rates for East Bay office, industrial, and retail.
+
+  # ---------- CITY FINANCES ----------
+
+  - id: oakland_cash_management
+    name: Cash Management Reports (Oakland Finance Dept.)
+    category: city_finance
+    type: oakland_finance_pdf
+    enabled: true
+    schedule: quarterly
+    output: city_cash.json
+    url: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Cash-Management-Reports
+    params:
+      report_kind: cash_management
+      keep_reports: 12
+    notes: Extracts portfolio/cash position figures from quarterly PDF reports.
+
+  - id: oakland_revenue_expenditure
+    name: Revenue & Expenditure Reports (Oakland Finance Dept.)
+    category: city_finance
+    type: oakland_finance_pdf
+    enabled: true
+    schedule: quarterly
+    output: city_revenue.json
+    url: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Revenue-Expenditure-Reports
+    params:
+      report_kind: revenue_expenditure
+      keep_reports: 12
+    notes: >
+      Extracts General Purpose Fund revenue lines (incl. business license /
+      gross receipts tax, sales tax, property tax) from quarterly R&E PDFs.
+
+  # ---------- OPEN DATA PORTAL (extend freely) ----------
+
+  - id: oakland_building_permits
+    name: Building Permits (Oakland Open Data Portal)
+    category: business_activity
+    type: socrata
+    enabled: false              # set true after confirming dataset ID on data.oaklandca.gov
+    schedule: daily
+    output: building_permits.json
+    params:
+      domain: data.oaklandca.gov
+      dataset_id: "REPLACE-WITH-DATASET-ID"   # find at data.oaklandca.gov → dataset → API
+      soql: "$limit=50000&$order=:updated_at DESC"
+      date_field: issued_date
+    notes: >
+      Template entry showing how to add ANY dataset from data.oaklandca.gov
+      (or any Socrata portal, e.g. data.acgov.org for Alameda County):
+      copy this block, paste the dataset's ID from its API page, set
+      enabled: true.

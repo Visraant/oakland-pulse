@@ -1,0 +1,20 @@
+{
+ "status": "verified_seed",
+ "source": "CBRE Research \u2014 Oakland Figures",
+ "points": [
+  {
+   "quarter": "2026-Q1",
+   "segment": "industrial",
+   "vacancy_pct": 7.6,
+   "source_url": "https://www.cbre.com/offices/corporate/oakland",
+   "retrieved": "2026-06-09"
+  },
+  {
+   "quarter": "2026-Q1",
+   "segment": "R&D",
+   "vacancy_pct": 19.3,
+   "source_url": "https://www.cbre.com/offices/corporate/oakland",
+   "retrieved": "2026-06-09"
+  }
+ ]
+}

@@ -1,0 +1,425 @@
+{
+ "status": "sample",
+ "source": "SAMPLE DATA \u2014 run the pipeline to parse the City's monthly PDFs",
+ "monthly": [
+  {
+   "month": "2021-06",
+   "opened": 330,
+   "closed": 249,
+   "net": 81
+  },
+  {
+   "month": "2021-07",
+   "opened": 301,
+   "closed": 253,
+   "net": 48
+  },
+  {
+   "month": "2021-08",
+   "opened": 305,
+   "closed": 260,
+   "net": 45
+  },
+  {
+   "month": "2021-09",
+   "opened": 294,
+   "closed": 216,
+   "net": 78
+  },
+  {
+   "month": "2021-10",
+   "opened": 363,
+   "closed": 240,
+   "net": 123
+  },
+  {
+   "month": "2021-11",
+   "opened": 330,
+   "closed": 235,
+   "net": 95
+  },
+  {
+   "month": "2021-12",
+   "opened": 331,
+   "closed": 225,
+   "net": 106
+  },
+  {
+   "month": "2022-01",
+   "opened": 320,
+   "closed": 273,
+   "net": 47
+  },
+  {
+   "month": "2022-02",
+   "opened": 359,
+   "closed": 233,
+   "net": 126
+  },
+  {
+   "month": "2022-03",
+   "opened": 362,
+   "closed": 266,
+   "net": 96
+  },
+  {
+   "month": "2022-04",
+   "opened": 349,
+   "closed": 239,
+   "net": 110
+  },
+  {
+   "month": "2022-05",
+   "opened": 320,
+   "closed": 265,
+   "net": 55
+  },
+  {
+   "month": "2022-06",
+   "opened": 382,
+   "closed": 260,
+   "net": 122
+  },
+  {
+   "month": "2022-07",
+   "opened": 339,
+   "closed": 289,
+   "net": 50
+  },
+  {
+   "month": "2022-08",
+   "opened": 384,
+   "closed": 271,
+   "net": 113
+  },
+  {
+   "month": "2022-09",
+   "opened": 362,
+   "closed": 263,
+   "net": 99
+  },
+  {
+   "month": "2022-10",
+   "opened": 354,
+   "closed": 269,
+   "net": 85
+  },
+  {
+   "month": "2022-11",
+   "opened": 369,
+   "closed": 226,
+   "net": 143
+  },
+  {
+   "month": "2022-12",
+   "opened": 329,
+   "closed": 219,
+   "net": 110
+  },
+  {
+   "month": "2023-01",
+   "opened": 320,
+   "closed": 224,
+   "net": 96
+  },
+  {
+   "month": "2023-02",
+   "opened": 310,
+   "closed": 216,
+   "net": 94
+  },
+  {
+   "month": "2023-03",
+   "opened": 329,
+   "closed": 230,
+   "net": 99
+  },
+  {
+   "month": "2023-04",
+   "opened": 313,
+   "closed": 232,
+   "net": 81
+  },
+  {
+   "month": "2023-05",
+   "opened": 334,
+   "closed": 207,
+   "net": 127
+  },
+  {
+   "month": "2023-06",
+   "opened": 323,
+   "closed": 254,
+   "net": 69
+  },
+  {
+   "month": "2023-07",
+   "opened": 288,
+   "closed": 215,
+   "net": 73
+  },
+  {
+   "month": "2023-08",
+   "opened": 280,
+   "closed": 242,
+   "net": 38
+  },
+  {
+   "month": "2023-09",
+   "opened": 296,
+   "closed": 193,
+   "net": 103
+  },
+  {
+   "month": "2023-10",
+   "opened": 275,
+   "closed": 235,
+   "net": 40
+  },
+  {
+   "month": "2023-11",
+   "opened": 292,
+   "closed": 218,
+   "net": 74
+  },
+  {
+   "month": "2023-12",
+   "opened": 292,
+   "closed": 213,
+   "net": 79
+  },
+  {
+   "month": "2024-01",
+   "opened": 306,
+   "closed": 198,
+   "net": 108
+  },
+  {
+   "month": "2024-02",
+   "opened": 245,
+   "closed": 216,
+   "net": 29
+  },
+  {
+   "month": "2024-03",
+   "opened": 289,
+   "closed": 225,
+   "net": 64
+  },
+  {
+   "month": "2024-04",
+   "opened": 283,
+   "closed": 187,
+   "net": 96
+  },
+  {
+   "month": "2024-05",
+   "opened": 316,
+   "closed": 185,
+   "net": 131
+  },
+  {
+   "month": "2024-06",
+   "opened": 279,
+   "closed": 194,
+   "net": 85
+  },
+  {
+   "month": "2024-07",
+   "opened": 301,
+   "closed": 183,
+   "net": 118
+  },
+  {
+   "month": "2024-08",
+   "opened": 295,
+   "closed": 222,
+   "net": 73
+  },
+  {
+   "month": "2024-09",
+   "opened": 296,
+   "closed": 207,
+   "net": 89
+  },
+  {
+   "month": "2024-10",
+   "opened": 319,
+   "closed": 226,
+   "net": 93
+  },
+  {
+   "month": "2024-11",
+   "opened": 326,
+   "closed": 196,
+   "net": 130
+  },
+  {
+   "month": "2024-12",
+   "opened": 317,
+   "closed": 250,
+   "net": 67
+  },
+  {
+   "month": "2025-01",
+   "opened": 336,
+   "closed": 252,
+   "net": 84
+  },
+  {
+   "month": "2025-02",
+   "opened": 327,
+   "closed": 232,
+   "net": 95
+  },
+  {
+   "month": "2025-03",
+   "opened": 325,
+   "closed": 220,
+   "net": 105
+  },
+  {
+   "month": "2025-04",
+   "opened": 357,
+   "closed": 253,
+   "net": 104
+  },
+  {
+   "month": "2025-05",
+   "opened": 334,
+   "closed": 242,
+   "net": 92
+  },
+  {
+   "month": "2025-06",
+   "opened": 312,
+   "closed": 274,
+   "net": 38
+  },
+  {
+   "month": "2025-07",
+   "opened": 358,
+   "closed": 228,
+   "net": 130
+  },
+  {
+   "month": "2025-08",
+   "opened": 337,
+   "closed": 250,
+   "net": 87
+  },
+  {
+   "month": "2025-09",
+   "opened": 394,
+   "closed": 245,
+   "net": 149
+  },
+  {
+   "month": "2025-10",
+   "opened": 329,
+   "closed": 234,
+   "net": 95
+  },
+  {
+   "month": "2025-11",
+   "opened": 332,
+   "closed": 247,
+   "net": 85
+  },
+  {
+   "month": "2025-12",
+   "opened": 381,
+   "closed": 271,
+   "net": 110
+  },
+  {
+   "month": "2026-01",
+   "opened": 342,
+   "closed": 236,
+   "net": 106
+  },
+  {
+   "month": "2026-02",
+   "opened": 394,
+   "closed": 258,
+   "net": 136
+  },
+  {
+   "month": "2026-03",
+   "opened": 333,
+   "closed": 245,
+   "net": 88
+  },
+  {
+   "month": "2026-04",
+   "opened": 390,
+   "closed": 271,
+   "net": 119
+  },
+  {
+   "month": "2026-05",
+   "opened": 356,
+   "closed": 250,
+   "net": 106
+  }
+ ],
+ "zip_counts_12mo": {
+  "94601": {
+   "opened": 134,
+   "closed": 116
+  },
+  "94602": {
+   "opened": 39,
+   "closed": 35
+  },
+  "94603": {
+   "opened": 89,
+   "closed": 82
+  },
+  "94605": {
+   "opened": 131,
+   "closed": 90
+  },
+  "94606": {
+   "opened": 140,
+   "closed": 73
+  },
+  "94607": {
+   "opened": 282,
+   "closed": 175
+  },
+  "94608": {
+   "opened": 129,
+   "closed": 119
+  },
+  "94609": {
+   "opened": 49,
+   "closed": 25
+  },
+  "94610": {
+   "opened": 388,
+   "closed": 353
+  },
+  "94611": {
+   "opened": 57,
+   "closed": 44
+  },
+  "94612": {
+   "opened": 261,
+   "closed": 132
+  },
+  "94618": {
+   "opened": 175,
+   "closed": 103
+  },
+  "94619": {
+   "opened": 51,
+   "closed": 31
+  },
+  "94621": {
+   "opened": 178,
+   "closed": 167
+  }
+ },
+ "records_by_month": {}
+}

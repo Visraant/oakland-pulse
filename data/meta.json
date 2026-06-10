@@ -1,0 +1,38 @@
+{
+ "last_pipeline_run": "2026-06-10T07:06:58Z",
+ "sources": {
+  "oakland_business_accounts": {
+   "status": "seeded"
+  },
+  "bls_oakland_unemployment": {
+   "status": "seeded"
+  },
+  "bls_oakland_jobs": {
+   "status": "seeded"
+  },
+  "census_business_formation": {
+   "status": "seeded"
+  },
+  "cbre_oakland_office": {
+   "status": "seeded_verified"
+  },
+  "cushman_oakland_marketbeat": {
+   "status": "seeded_verified"
+  },
+  "oakland_cash_management": {
+   "status": "seeded"
+  },
+  "oakland_revenue_expenditure": {
+   "status": "seeded"
+  },
+  "oakland_building_permits": {
+   "name": "Building Permits (Oakland Open Data Portal)",
+   "type": "socrata",
+   "category": "business_activity",
+   "schedule": "daily",
+   "output": "building_permits.json",
+   "enabled": false,
+   "status": "disabled"
+  }
+ }
+}
