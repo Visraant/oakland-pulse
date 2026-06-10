@@ -51,16 +51,18 @@ sources:
       list with addresses (used for the map).
 
   - id: census_business_formation
-    name: Business Formation Statistics — California (U.S. Census)
+    name: Business Formation Statistics — U.S. (Census Bureau)
     category: business_activity
     type: census_bfs
     enabled: true
     schedule: monthly
     output: business_formation.json
     params:
-      geo: "CA"                # state-level; county not published in BFS
       series: "BA_BA"          # business applications
-    notes: State-level business application trend for context alongside Oakland counts.
+    notes: >
+      National business-application trend for context alongside Oakland
+      counts. The BFS API only publishes US-level data; California-level
+      BFS comes as a CSV download and can be added as a future fetcher.
 
   # ---------- EMPLOYMENT ----------
 

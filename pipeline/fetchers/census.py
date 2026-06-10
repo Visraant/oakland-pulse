@@ -11,30 +11,35 @@ FRED_API = "https://api.stlouisfed.org/fred/series/observations"
 
 
 def fetch_bfs(source: dict) -> dict:
+    """US-level business applications. The Census BFS API publishes national
+    data only (verified against /eits/bfs/geography); state-level BFS is a
+    separate CSV product and can be added later as its own fetcher."""
     params = source.get("params", {})
-    geo = params.get("geo", "CA")
     series = params.get("series", "BA_BA")
-    year = datetime.now().year
-    url = (f"{BFS_API}?get=cell_value,time_slot_id,seasonally_adj"
-           f"&category_code=TOTAL&data_type_code={series}"
-           f"&for=state:{_state_fips(geo)}"
-           f"&time=from+2015+to+{year}")
-    rows = http_get(url).json()
-    header, body = rows[0], rows[1:]
-    idx = {h: i for i, h in enumerate(header)}
     points = []
-    for r in body:
-        if r[idx.get("seasonally_adj", 2)] != "yes":
-            continue
-        t = r[idx["time"]]
-        if "-" in t:  # monthly like 2024-03
-            points.append({"date": t, "value": float(r[idx["cell_value"]])})
+    for year in range(2015, datetime.now().year + 1):
+        url = (f"{BFS_API}?get=data_type_code,seasonally_adj,category_code,cell_value"
+               f"&for=us:*&time={year}")
+        try:
+            rows = http_get(url).json()
+        except Exception:  # noqa: BLE001
+            continue  # a missing year shouldn't sink the series
+        header, body = rows[0], rows[1:]
+        idx = {h: i for i, h in enumerate(header)}
+        for r in body:
+            if (r[idx["data_type_code"]] == series
+                    and r[idx["category_code"]] == "TOTAL"
+                    and r[idx["seasonally_adj"]] == "yes"):
+                points.append({"date": r[idx["time"]],
+                               "value": float(r[idx["cell_value"]])})
     points.sort(key=lambda p: p["date"])
+    if not points:
+        raise RuntimeError("BFS API returned no matching rows")
     write_output(source["output"], {
         "status": "live",
         "source": "U.S. Census Bureau, Business Formation Statistics",
-        "series": [{"id": f"BFS_{series}_{geo}",
-                    "label": f"Business applications — {geo} (seasonally adj.)",
+        "series": [{"id": f"BFS_{series}_US",
+                    "label": "Business applications — US (seasonally adj.)",
                     "points": points}],
     })
     return {"records": len(points), "note": f"{len(points)} monthly points"}
@@ -62,6 +67,3 @@ def fetch_fred(source: dict) -> dict:
     n = sum(len(s["points"]) for s in out_series)
     return {"records": n, "note": f"{len(out_series)} series, {n} points"}
 
-
-def _state_fips(code: str) -> str:
-    return {"CA": "06"}.get(code.upper(), code)

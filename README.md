@@ -104,6 +104,20 @@ The repo ships with starter data so the dashboard renders immediately:
   sector-level revenue/payroll, and the City's own open-data portal datasets
   as they're published.
 
+## Known issue: oaklandca.gov blocks cloud IPs
+
+The City's website platform returns HTTP 403 to requests from GitHub's
+servers (bot protection by IP reputation). The three oaklandca.gov sources
+therefore can't refresh from the cloud scheduler. Two clean fixes:
+
+1. **Run them from a trusted network** — `scripts/refresh_city_sources.sh`
+   refreshes just those sources and pushes the data; run it from any City
+   machine on a weekly cron. (As City staff you could also ask IT/Granicus
+   to allowlist a runner, or better, get Finance to publish these as data
+   files on data.oaklandca.gov — then they become one-line Socrata sources.)
+2. **A self-hosted GitHub Actions runner** inside the City network makes it
+   fully automatic.
+
 ## Honest limitations
 
 - Scrapers were written against page structures verified on 2026-06-09 but
