@@ -31,15 +31,15 @@
   }
  ],
  "failures": [
-  "2026-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2026 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2026",
-  "2025-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2025 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2025",
-  "2025-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2025 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2025",
-  "2025-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2025 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2025",
-  "2025-Q1: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q1-2025 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q1-2025",
-  "2024-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2024 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2024",
-  "2024-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2024 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2024",
-  "2023-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2023 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2023",
-  "2023-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2023 \u2014 404 Client Error: Not Found for url: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2023"
+  "2026-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2026 \u2014 HTTP 404 from www.cbre.com",
+  "2025-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2025 \u2014 HTTP 404 from www.cbre.com",
+  "2025-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2025 \u2014 HTTP 404 from www.cbre.com",
+  "2025-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2025 \u2014 HTTP 404 from www.cbre.com",
+  "2025-Q1: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q1-2025 \u2014 HTTP 404 from www.cbre.com",
+  "2024-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2024 \u2014 HTTP 404 from www.cbre.com",
+  "2024-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2024 \u2014 HTTP 404 from www.cbre.com",
+  "2023-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2023 \u2014 HTTP 404 from www.cbre.com",
+  "2023-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2023 \u2014 HTTP 404 from www.cbre.com"
  ],
- "generated_at": "2026-06-10T07:25:30Z"
+ "generated_at": "2026-06-10T07:31:23Z"
 }

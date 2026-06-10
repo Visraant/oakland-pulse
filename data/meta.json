@@ -1,5 +1,5 @@
 {
- "last_pipeline_run": "2026-06-10T07:25:56Z",
+ "last_pipeline_run": "2026-06-10T07:31:49Z",
  "sources": {
   "oakland_business_accounts": {
    "status": "error",
@@ -9,8 +9,8 @@
    "schedule": "monthly",
    "output": "business_accounts.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:23:21Z",
-   "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Business/Business-Taxes-Licenses-Permits/Opened-and-Closed-Business-Accounts \u2014 403 Client Error: Forbidden for url: https://www.oaklandca.gov/Business/Business-Taxes-Licenses-Permits/Opened-and-Closed-Business-Accounts"
+   "last_run": "2026-06-10T07:29:20Z",
+   "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Business/Business-Taxes-Licenses-Permits/Opened-and-Closed-Business-Accounts \u2014 HTTP 403 from www.oaklandca.gov (likely bot protection)"
   },
   "bls_oakland_unemployment": {
    "status": "ok",
@@ -20,10 +20,10 @@
    "schedule": "monthly",
    "output": "employment_unemployment.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:23:34Z",
-   "last_success": "2026-06-10T07:23:35Z",
-   "records": 0,
-   "note": "0 series, 0 points; warnings: ['LAUCT0653000000000003', 'LAUMT063608400000003']",
+   "last_run": "2026-06-10T07:29:32Z",
+   "last_success": "2026-06-10T07:29:32Z",
+   "records": 360,
+   "note": "3 series, 360 points; warnings: ['Year range has been reduced to the system-allowed limit of 10 years.']",
    "error": null
   },
   "bls_oakland_jobs": {
@@ -34,8 +34,8 @@
    "schedule": "monthly",
    "output": "employment_jobs.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:23:35Z",
-   "last_success": "2026-06-10T07:23:35Z",
+   "last_run": "2026-06-10T07:29:32Z",
+   "last_success": "2026-06-10T07:29:33Z",
    "records": 120,
    "note": "1 series, 120 points; warnings: ['Year range has been reduced to the system-allowed limit of 10 years.']",
    "error": null
@@ -48,7 +48,7 @@
    "schedule": "monthly",
    "output": "business_formation.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:23:34Z",
+   "last_run": "2026-06-10T07:29:32Z",
    "error": "Expecting value: line 2 column 1 (char 1)"
   },
   "cbre_oakland_office": {
@@ -59,10 +59,10 @@
    "schedule": "quarterly",
    "output": "cre_office_cbre.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:23:35Z",
-   "last_success": "2026-06-10T07:25:30Z",
+   "last_run": "2026-06-10T07:29:33Z",
+   "last_success": "2026-06-10T07:31:23Z",
    "records": 3,
-   "note": "1 new quarters, 3 total, 9 misses",
+   "note": "0 new quarters, 3 total, 9 misses",
    "error": null
   },
   "cushman_oakland_marketbeat": {
@@ -73,10 +73,10 @@
    "schedule": "quarterly",
    "output": "cre_cushman.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:25:30Z",
-   "last_success": "2026-06-10T07:25:31Z",
+   "last_run": "2026-06-10T07:31:23Z",
+   "last_success": "2026-06-10T07:31:25Z",
    "records": 6,
-   "note": "3 segments parsed this run",
+   "note": "0 segments parsed this run",
    "error": null
   },
   "oakland_cash_management": {
@@ -87,8 +87,8 @@
    "schedule": "quarterly",
    "output": "city_cash.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:25:31Z",
-   "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Cash-Management-Reports \u2014 403 Client Error: Forbidden for url: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Cash-Management-Reports"
+   "last_run": "2026-06-10T07:31:25Z",
+   "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Cash-Management-Reports \u2014 HTTP 403 from www.oaklandca.gov (likely bot protection)"
   },
   "oakland_revenue_expenditure": {
    "status": "error",
@@ -98,8 +98,8 @@
    "schedule": "quarterly",
    "output": "city_revenue.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:25:44Z",
-   "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Revenue-Expenditure-Reports \u2014 403 Client Error: Forbidden for url: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Revenue-Expenditure-Reports"
+   "last_run": "2026-06-10T07:31:37Z",
+   "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Revenue-Expenditure-Reports \u2014 HTTP 403 from www.oaklandca.gov (likely bot protection)"
   },
   "oakland_building_permits": {
    "name": "Building Permits (Oakland Open Data Portal)",
