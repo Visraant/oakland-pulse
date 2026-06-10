@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 14 * * *"        # daily, 6–7am Pacific
   workflow_dispatch: {}          # adds a "Run workflow" button for manual refresh
+  push:
+    paths:                       # editing the registry or pipeline auto-refreshes data
+      - "config/sources.yaml"
+      - "pipeline/**"
+      - ".github/workflows/update-data.yml"
 
 permissions:
   contents: write

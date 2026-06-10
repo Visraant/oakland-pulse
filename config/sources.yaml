@@ -1,5 +1,6 @@
 # ============================================================
 # OAKLAND PULSE — DATA SOURCE REGISTRY
+# (Committing changes to this file automatically triggers a data refresh.)
 # ============================================================
 # This file controls every dataset the dashboard pulls in.
 # A non-technical administrator can edit it directly on GitHub:
