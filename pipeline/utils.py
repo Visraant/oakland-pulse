@@ -10,6 +10,12 @@ from pathlib import Path
 
 import requests
 
+try:  # browser-impersonating client; needed because oaklandca.gov's bot
+    # protection fingerprints plain Python clients and returns HTTP 403
+    from curl_cffi import requests as curl_requests
+except ImportError:
+    curl_requests = None
+
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 CACHE_DIR = DATA_DIR / "_cache"
 
@@ -37,7 +43,15 @@ def http_get(url: str, *, timeout: int = 60, retries: int = 3,
     last_err: Exception | None = None
     for attempt in range(retries):
         try:
-            resp = requests.get(url, headers=headers, timeout=timeout, **kwargs)
+            # Prefer a real-Chrome TLS/HTTP fingerprint (some government and
+            # corporate sites 403 plain Python clients); fall back to plain
+            # requests on the final attempt so curl_cffi issues can never
+            # take down a source that worked before.
+            if curl_requests is not None and attempt < retries - 1:
+                resp = curl_requests.get(url, impersonate="chrome",
+                                         timeout=timeout, **kwargs)
+            else:
+                resp = requests.get(url, headers=headers, timeout=timeout, **kwargs)
             if resp.status_code >= 400:
                 raise RuntimeError(f"HTTP {resp.status_code} from {url.split('/')[2]}"
                                    + (" (likely bot protection)" if resp.status_code in (403, 429, 503) else ""))

@@ -10,7 +10,7 @@ PY="$(command -v python3 || command -v python)"
 "$PY" -m pipeline.run_all --only oakland_business_accounts
 "$PY" -m pipeline.run_all --only oakland_cash_management
 "$PY" -m pipeline.run_all --only oakland_revenue_expenditure
-git pull --rebase origin main
+git pull --rebase --autostash origin main
 git add data/
 git diff --cached --quiet || git commit -m "data: city-source refresh from trusted network"
 git push origin main
