@@ -1,278 +1,155 @@
 {
- "status": "sample",
- "source": "SAMPLE DATA \u2014 run the pipeline to parse Finance Dept. PDFs",
+ "status": "live",
+ "source": "https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Revenue-Expenditure-Reports",
  "report_kind": "revenue_expenditure",
  "reports": [
   {
-   "label": "R&E Report FY22-Q1",
-   "url": "#",
+   "label": "fy24-25-q2-re-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy24-25-q2-re-report.pdf",
    "figures": {
-    "property_tax": 100376169,
-    "sales_tax": 18806892,
-    "business_license_tax": 25376520,
-    "real_estate_transfer_tax": 19815181,
-    "transient_occupancy_tax": 7676387,
-    "utility_consumption_tax": 11193501,
-    "parking_tax": 5474479,
-    "total_revenue": 188719129
+    "property_tax": 2024.0,
+    "business_license_tax": 2024.0,
+    "real_estate_transfer_tax": 2024.0,
+    "utility_consumption_tax": 2024.0,
+    "sales_tax": 2024.0,
+    "transient_occupancy_tax": 2024.0,
+    "parking_tax": 2024.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 7
   },
   {
-   "label": "R&E Report FY22-Q2",
-   "url": "#",
+   "label": "fy-2024-25-q3-re-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy-2024-25-q3-re-report.pdf",
    "figures": {
-    "property_tax": 88007790,
-    "sales_tax": 15897893,
-    "business_license_tax": 30363424,
-    "real_estate_transfer_tax": 25286271,
-    "transient_occupancy_tax": 8078729,
-    "utility_consumption_tax": 12131675,
-    "parking_tax": 5162685,
-    "total_revenue": 184928467
+    "property_tax": 2024.0,
+    "business_license_tax": 2024.0,
+    "real_estate_transfer_tax": 2024.0,
+    "utility_consumption_tax": 2024.0,
+    "sales_tax": 2024.0,
+    "transient_occupancy_tax": 2024.0,
+    "parking_tax": 2024.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 7
   },
   {
-   "label": "R&E Report FY22-Q3",
-   "url": "#",
+   "label": "fy23-24-q4-re-report-questions-and-responses-1-as-of-11.19.24-9.24am-with-attachments.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy23-24-q4-re-report-questions-and-responses-1-as-of-11.19.24-9.24am-with-attachments.pdf",
    "figures": {
-    "property_tax": 108340590,
-    "sales_tax": 19768435,
-    "business_license_tax": 30582241,
-    "real_estate_transfer_tax": 21558998,
-    "transient_occupancy_tax": 6984833,
-    "utility_consumption_tax": 13290548,
-    "parking_tax": 5339056,
-    "total_revenue": 205864701
+    "total_revenue": 31126085.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 1
   },
   {
-   "label": "R&E Report FY22-Q4",
-   "url": "#",
+   "label": "fiscal-year-2024-25-first-quarter-q1-revenue-and-expenditures-re-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fiscal-year-2024-25-first-quarter-q1-revenue-and-expenditures-re-report.pdf",
    "figures": {
-    "property_tax": 112140252,
-    "sales_tax": 19018684,
-    "business_license_tax": 27244899,
-    "real_estate_transfer_tax": 19926042,
-    "transient_occupancy_tax": 7570136,
-    "utility_consumption_tax": 15226752,
-    "parking_tax": 4760028,
-    "total_revenue": 205886793
+    "property_tax": 2024.0,
+    "utility_consumption_tax": 2023.0,
+    "business_license_tax": 2024.0,
+    "sales_tax": 2024.0,
+    "real_estate_transfer_tax": 2024.0,
+    "transient_occupancy_tax": 2024.0,
+    "parking_tax": 2024.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 7
   },
   {
-   "label": "R&E Report FY23-Q1",
-   "url": "#",
+   "label": "fy-2023-24-q4-re-report-fullly-signed-and-filed.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy-2023-24-q4-re-report-fullly-signed-and-filed.pdf",
    "figures": {
-    "property_tax": 94843616,
-    "sales_tax": 17889862,
-    "business_license_tax": 25685059,
-    "real_estate_transfer_tax": 20027812,
-    "transient_occupancy_tax": 6468143,
-    "utility_consumption_tax": 12483873,
-    "parking_tax": 5970813,
-    "total_revenue": 183369178
+    "real_estate_transfer_tax": 2023.0,
+    "business_license_tax": 2023.0,
+    "sales_tax": 2023.0,
+    "transient_occupancy_tax": 2023.0,
+    "parking_tax": 2023.0,
+    "property_tax": 2270.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 6
   },
   {
-   "label": "R&E Report FY23-Q2",
-   "url": "#",
+   "label": "fy-2023-24-q3-re-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy-2023-24-q3-re-report.pdf",
    "figures": {
-    "property_tax": 92642613,
-    "sales_tax": 21175548,
-    "business_license_tax": 25943808,
-    "real_estate_transfer_tax": 24101332,
-    "transient_occupancy_tax": 7379116,
-    "utility_consumption_tax": 14150034,
-    "parking_tax": 4561500,
-    "total_revenue": 189953951
+    "real_estate_transfer_tax": 2024.0,
+    "property_tax": 2023.0,
+    "utility_consumption_tax": 2023.0,
+    "business_license_tax": 2023.0,
+    "sales_tax": 2023.0,
+    "transient_occupancy_tax": 2419.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 6
   },
   {
-   "label": "R&E Report FY23-Q3",
-   "url": "#",
+   "label": "fy2023-24-q2-re-report-with-attachment.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy2023-24-q2-re-report-with-attachment.pdf",
    "figures": {
-    "property_tax": 92083216,
-    "sales_tax": 17617550,
-    "business_license_tax": 32789301,
-    "real_estate_transfer_tax": 22340347,
-    "transient_occupancy_tax": 8081168,
-    "utility_consumption_tax": 14916879,
-    "parking_tax": 5115989,
-    "total_revenue": 192944450
+    "real_estate_transfer_tax": 2023.0,
+    "property_tax": 2023.0,
+    "utility_consumption_tax": 2023.0,
+    "business_license_tax": 2022.0,
+    "sales_tax": 2023.0,
+    "transient_occupancy_tax": 2419.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 6
   },
   {
-   "label": "R&E Report FY23-Q4",
-   "url": "#",
+   "label": "fiscal-year-2022-23-fourth-quarter-q4-and-fy-2023-24-first-quarter-q1-revenue-and-expenditures-re-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fiscal-year-2022-23-fourth-quarter-q4-and-fy-2023-24-first-quarter-q1-revenue-and-expenditures-re-report.pdf",
    "figures": {
-    "property_tax": 94598672,
-    "sales_tax": 18873729,
-    "business_license_tax": 27226862,
-    "real_estate_transfer_tax": 25386396,
-    "transient_occupancy_tax": 8424990,
-    "utility_consumption_tax": 15900723,
-    "parking_tax": 5550447,
-    "total_revenue": 195961819
+    "sales_tax": 2022.0,
+    "property_tax": 2022.0,
+    "utility_consumption_tax": 2021.0,
+    "business_license_tax": 2022.0,
+    "transient_occupancy_tax": 2022.0,
+    "parking_tax": 2023.0,
+    "real_estate_transfer_tax": 2023.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 7
   },
   {
-   "label": "R&E Report FY24-Q1",
-   "url": "#",
+   "label": "fy-2022-23-q3-revenue-and-expenditure-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy-2022-23-q3-revenue-and-expenditure-report.pdf",
    "figures": {
-    "property_tax": 103003056,
-    "sales_tax": 18604951,
-    "business_license_tax": 31035613,
-    "real_estate_transfer_tax": 21390650,
-    "transient_occupancy_tax": 7153493,
-    "utility_consumption_tax": 13236007,
-    "parking_tax": 4705889,
-    "total_revenue": 199129659
+    "property_tax": 2022.0,
+    "sales_tax": 2022.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 2
   },
   {
-   "label": "R&E Report FY24-Q2",
-   "url": "#",
+   "label": "fy-2022-23-second-quarter-revenue-and-expenditure-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy-2022-23-second-quarter-revenue-and-expenditure-report.pdf",
    "figures": {
-    "property_tax": 115371695,
-    "sales_tax": 18144072,
-    "business_license_tax": 30282116,
-    "real_estate_transfer_tax": 23552381,
-    "transient_occupancy_tax": 7881795,
-    "utility_consumption_tax": 13400820,
-    "parking_tax": 5468146,
-    "total_revenue": 214101025
+    "property_tax": 2270.0,
+    "sales_tax": 2022.0,
+    "transient_occupancy_tax": 2419.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 3
   },
   {
-   "label": "R&E Report FY24-Q3",
-   "url": "#",
+   "label": "revenue-and-expenditure-report-re-fy-2021-22-q4-and-fy-2022-23-q1.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/revenue-and-expenditure-report-re-fy-2021-22-q4-and-fy-2022-23-q1.pdf",
    "figures": {
-    "property_tax": 114307918,
-    "sales_tax": 22496155,
-    "business_license_tax": 34262124,
-    "real_estate_transfer_tax": 23665963,
-    "transient_occupancy_tax": 8139814,
-    "utility_consumption_tax": 16223106,
-    "parking_tax": 5048302,
-    "total_revenue": 224143382
+    "property_tax": 2270.0,
+    "real_estate_transfer_tax": 2022.0,
+    "sales_tax": 2021.0,
+    "transient_occupancy_tax": 2419.0,
+    "business_license_tax": 2022.0
    },
-   "parsed_lines": 8
+   "parsed_lines": 5
   },
   {
-   "label": "R&E Report FY24-Q4",
-   "url": "#",
+   "label": "fy-2021-22-third-quarter-q3-revenue-and-expenditure-re-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy-2021-22-third-quarter-q3-revenue-and-expenditure-re-report.pdf",
    "figures": {
-    "property_tax": 115109972,
-    "sales_tax": 17267241,
-    "business_license_tax": 29040089,
-    "real_estate_transfer_tax": 25134920,
-    "transient_occupancy_tax": 7108056,
-    "utility_consumption_tax": 14211031,
-    "parking_tax": 5670819,
-    "total_revenue": 213542128
+    "property_tax": 3308332.0,
+    "sales_tax": 2069008.0,
+    "parking_tax": 1342026.0,
+    "total_revenue": 44935126.0,
+    "transient_occupancy_tax": 2419.0
    },
-   "parsed_lines": 8
-  },
-  {
-   "label": "R&E Report FY25-Q1",
-   "url": "#",
-   "figures": {
-    "property_tax": 109114597,
-    "sales_tax": 20197699,
-    "business_license_tax": 32939654,
-    "real_estate_transfer_tax": 24804869,
-    "transient_occupancy_tax": 8478938,
-    "utility_consumption_tax": 13082484,
-    "parking_tax": 5386197,
-    "total_revenue": 214004438
-   },
-   "parsed_lines": 8
-  },
-  {
-   "label": "R&E Report FY25-Q2",
-   "url": "#",
-   "figures": {
-    "property_tax": 115661168,
-    "sales_tax": 20808671,
-    "business_license_tax": 30532874,
-    "real_estate_transfer_tax": 25227015,
-    "transient_occupancy_tax": 8524693,
-    "utility_consumption_tax": 15534593,
-    "parking_tax": 5494702,
-    "total_revenue": 221783716
-   },
-   "parsed_lines": 8
-  },
-  {
-   "label": "R&E Report FY25-Q3",
-   "url": "#",
-   "figures": {
-    "property_tax": 106422109,
-    "sales_tax": 22726403,
-    "business_license_tax": 33362548,
-    "real_estate_transfer_tax": 24864872,
-    "transient_occupancy_tax": 7628862,
-    "utility_consumption_tax": 15823117,
-    "parking_tax": 5841773,
-    "total_revenue": 216669684
-   },
-   "parsed_lines": 8
-  },
-  {
-   "label": "R&E Report FY25-Q4",
-   "url": "#",
-   "figures": {
-    "property_tax": 113192387,
-    "sales_tax": 17809054,
-    "business_license_tax": 30980698,
-    "real_estate_transfer_tax": 24428167,
-    "transient_occupancy_tax": 7581068,
-    "utility_consumption_tax": 13181463,
-    "parking_tax": 5762616,
-    "total_revenue": 212935453
-   },
-   "parsed_lines": 8
-  },
-  {
-   "label": "R&E Report FY26-Q1",
-   "url": "#",
-   "figures": {
-    "property_tax": 105589919,
-    "sales_tax": 21879703,
-    "business_license_tax": 28449997,
-    "real_estate_transfer_tax": 24633506,
-    "transient_occupancy_tax": 7016282,
-    "utility_consumption_tax": 15103917,
-    "parking_tax": 5292712,
-    "total_revenue": 207966036
-   },
-   "parsed_lines": 8
-  },
-  {
-   "label": "R&E Report FY26-Q2",
-   "url": "#",
-   "figures": {
-    "property_tax": 115491918,
-    "sales_tax": 19990768,
-    "business_license_tax": 36113251,
-    "real_estate_transfer_tax": 24104430,
-    "transient_occupancy_tax": 7699873,
-    "utility_consumption_tax": 16522874,
-    "parking_tax": 6528744,
-    "total_revenue": 226451858
-   },
-   "parsed_lines": 8
+   "parsed_lines": 5
   }
  ],
- "failures": []
+ "failures": [],
+ "generated_at": "2026-06-10T18:17:35Z"
 }

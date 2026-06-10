@@ -1,152 +1,81 @@
 {
- "status": "sample",
- "source": "SAMPLE DATA \u2014 run the pipeline to parse Finance Dept. PDFs",
+ "status": "live",
+ "source": "https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Cash-Management-Reports",
  "report_kind": "cash_management",
  "reports": [
   {
-   "label": "Cash Mgmt FY22-Q1",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 860006865
-   },
-   "parsed_lines": 1
+   "label": "cash-management-report-december-2025.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-december-2025.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY22-Q2",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 926611065
-   },
-   "parsed_lines": 1
+   "label": "cm-report-december-2025-attachment-a.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-december-2025-attachment-a.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY22-Q3",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 884605444
-   },
-   "parsed_lines": 1
+   "label": "cash-management-report-september-2025.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-september-2025.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY22-Q4",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 916497974
-   },
-   "parsed_lines": 1
+   "label": "cm-report-september-2025-attachment-a.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-september-2025-attachment-a.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY23-Q1",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 872962440
-   },
-   "parsed_lines": 1
+   "label": "cash-management-report-june-2025.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-june-2025.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY23-Q2",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 927739515
-   },
-   "parsed_lines": 1
+   "label": "cm-report-june-2025-attachment-a.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-june-2025-attachment-a.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY23-Q3",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 882770187
-   },
-   "parsed_lines": 1
+   "label": "cm-report-3.31.25.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-3.31.25.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY23-Q4",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 940404605
-   },
-   "parsed_lines": 1
+   "label": "cm-report-3.31.25-attachment-a.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-3.31.25-attachment-a.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY24-Q1",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 946026621
-   },
-   "parsed_lines": 1
+   "label": "cm-report-12.31.24.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-12.31.24.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY24-Q2",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 958219551
-   },
-   "parsed_lines": 1
+   "label": "cm-report-12.31.24-attachment-a.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-12.31.24-attachment-a.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY24-Q3",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 922350241
-   },
-   "parsed_lines": 1
+   "label": "cash-management-report-for-fy-2024-2025-first-quarter-ended-september-30.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-for-fy-2024-2025-first-quarter-ended-september-30.pdf",
+   "figures": {},
+   "parsed_lines": 0
   },
   {
-   "label": "Cash Mgmt FY24-Q4",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 956777679
-   },
-   "parsed_lines": 1
-  },
-  {
-   "label": "Cash Mgmt FY25-Q1",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 941174954
-   },
-   "parsed_lines": 1
-  },
-  {
-   "label": "Cash Mgmt FY25-Q2",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 982578026
-   },
-   "parsed_lines": 1
-  },
-  {
-   "label": "Cash Mgmt FY25-Q3",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 975353400
-   },
-   "parsed_lines": 1
-  },
-  {
-   "label": "Cash Mgmt FY25-Q4",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 986292161
-   },
-   "parsed_lines": 1
-  },
-  {
-   "label": "Cash Mgmt FY26-Q1",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 953303315
-   },
-   "parsed_lines": 1
-  },
-  {
-   "label": "Cash Mgmt FY26-Q2",
-   "url": "#",
-   "figures": {
-    "total_portfolio": 987976828
-   },
-   "parsed_lines": 1
+   "label": "cash-management-report-for-fy-2023-2024-fourth-quarter-ended-june-30-2024.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-for-fy-2023-2024-fourth-quarter-ended-june-30-2024.pdf",
+   "figures": {},
+   "parsed_lines": 0
   }
  ],
- "failures": []
+ "failures": [],
+ "generated_at": "2026-06-10T18:08:58Z"
 }
