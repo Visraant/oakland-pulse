@@ -75,10 +75,12 @@ sources:
       # VERIFY series IDs at https://data.bls.gov/series-report before first run.
       # The pipeline will flag any series the API rejects on the admin page.
       series:
-        - id: LAUCT0653000000000003
+        - id: LAUCT065300000000003
           label: Oakland city — unemployment rate (%)
-        - id: LAUMT063608400000003
-          label: Oakland-Fremont-Hayward MD — unemployment rate (%)
+        - id: LAUCN060010000000003
+          label: Alameda County — unemployment rate (%)
+        - id: LAUMT064186000000003
+          label: SF-Oakland-Hayward MSA — unemployment rate (%)
       start_year: 2015
     notes: Local Area Unemployment Statistics. Free API; add BLS_API_KEY secret for higher limits.
 

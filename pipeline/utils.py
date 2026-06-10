@@ -38,9 +38,9 @@ def http_get(url: str, *, timeout: int = 60, retries: int = 3,
     for attempt in range(retries):
         try:
             resp = requests.get(url, headers=headers, timeout=timeout, **kwargs)
-            if resp.status_code in (429, 503):
-                raise RuntimeError(f"HTTP {resp.status_code} (rate limited/blocked)")
-            resp.raise_for_status()
+            if resp.status_code >= 400:
+                raise RuntimeError(f"HTTP {resp.status_code} from {url.split('/')[2]}"
+                                   + (" (likely bot protection)" if resp.status_code in (403, 429, 503) else ""))
             return resp
         except Exception as err:  # noqa: BLE001
             last_err = err

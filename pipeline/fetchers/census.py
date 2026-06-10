@@ -16,7 +16,7 @@ def fetch_bfs(source: dict) -> dict:
     series = params.get("series", "BA_BA")
     year = datetime.now().year
     url = (f"{BFS_API}?get=cell_value,time_slot_id,seasonally_adj"
-           f"&category_code={series}&data_type_code=TOTAL"
+           f"&category_code=TOTAL&data_type_code={series}"
            f"&for=state:{_state_fips(geo)}"
            f"&time=from+2015+to+{year}")
     rows = http_get(url).json()
