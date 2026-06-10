@@ -30,6 +30,7 @@ jobs:
         env:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}    # optional, raises BLS limits
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}  # only needed for fred sources
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}  # optional, avoids shared-IP rate limits
         run: python -m pipeline.run_all
 
       - name: Commit refreshed data

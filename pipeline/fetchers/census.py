@@ -11,38 +11,42 @@ FRED_API = "https://api.stlouisfed.org/fred/series/observations"
 
 
 def fetch_bfs(source: dict) -> dict:
-    """US-level business applications. The Census BFS API publishes national
-    data only (verified against /eits/bfs/geography); state-level BFS is a
-    separate CSV product and can be added later as its own fetcher."""
+    """US-level business applications (the BFS API publishes national data
+    only). One request for the whole range; GitHub runner IPs share Census's
+    no-key quota, so add a free CENSUS_API_KEY secret if this rate-limits."""
     params = source.get("params", {})
     series = params.get("series", "BA_BA")
-    points = []
-    for year in range(2015, datetime.now().year + 1):
-        url = (f"{BFS_API}?get=data_type_code,seasonally_adj,category_code,cell_value"
-               f"&for=us:*&time={year}")
-        try:
-            rows = http_get(url).json()
-        except Exception:  # noqa: BLE001
-            continue  # a missing year shouldn't sink the series
-        header, body = rows[0], rows[1:]
-        idx = {h: i for i, h in enumerate(header)}
-        for r in body:
-            if (r[idx["data_type_code"]] == series
-                    and r[idx["category_code"]] == "TOTAL"
-                    and r[idx["seasonally_adj"]] == "yes"):
-                points.append({"date": r[idx["time"]],
-                               "value": float(r[idx["cell_value"]])})
-    points.sort(key=lambda p: p["date"])
+    url = (f"{BFS_API}?get=data_type_code,seasonally_adj,category_code,cell_value"
+           f"&for=us:*&time=from+2015+to+{datetime.now().year}")
+    key = os.environ.get("CENSUS_API_KEY")
+    if key:
+        url += f"&key={key}"
+    rows = http_get(url).json()
+    header, body = rows[0], rows[1:]
+    idx = {h: i for i, h in enumerate(header)}
+
+    def pick(adj):
+        pts = [{"date": r[idx["time"]], "value": float(r[idx["cell_value"]])}
+               for r in body
+               if r[idx["data_type_code"]] == series
+               and r[idx["category_code"]] == "TOTAL"
+               and r[idx["seasonally_adj"]] == adj]
+        pts.sort(key=lambda p: p["date"])
+        return pts
+
+    points, adj_note = pick("yes"), "seasonally adj."
     if not points:
-        raise RuntimeError("BFS API returned no matching rows")
+        points, adj_note = pick("no"), "not seasonally adj."
+    if not points:
+        raise RuntimeError("BFS API returned no TOTAL rows for " + series)
     write_output(source["output"], {
         "status": "live",
         "source": "U.S. Census Bureau, Business Formation Statistics",
         "series": [{"id": f"BFS_{series}_US",
-                    "label": "Business applications — US (seasonally adj.)",
+                    "label": f"Business applications — US ({adj_note})",
                     "points": points}],
     })
-    return {"records": len(points), "note": f"{len(points)} monthly points"}
+    return {"records": len(points), "note": f"{len(points)} monthly points ({adj_note})"}
 
 
 def fetch_fred(source: dict) -> dict:
