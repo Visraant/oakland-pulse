@@ -1,5 +1,5 @@
 {
- "last_pipeline_run": "2026-06-10T07:44:38Z",
+ "last_pipeline_run": "2026-06-10T17:27:42Z",
  "sources": {
   "oakland_business_accounts": {
    "status": "error",
@@ -9,7 +9,7 @@
    "schedule": "monthly",
    "output": "business_accounts.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:42:06Z",
+   "last_run": "2026-06-10T17:25:10Z",
    "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Business/Business-Taxes-Licenses-Permits/Opened-and-Closed-Business-Accounts \u2014 HTTP 403 from www.oaklandca.gov (likely bot protection)"
   },
   "bls_oakland_unemployment": {
@@ -20,8 +20,8 @@
    "schedule": "monthly",
    "output": "employment_unemployment.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:42:19Z",
-   "last_success": "2026-06-10T07:42:19Z",
+   "last_run": "2026-06-10T17:25:22Z",
+   "last_success": "2026-06-10T17:25:22Z",
    "records": 360,
    "note": "3 series, 360 points; warnings: ['Year range has been reduced to the system-allowed limit of 10 years.']",
    "error": null
@@ -34,8 +34,8 @@
    "schedule": "monthly",
    "output": "employment_jobs.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:42:19Z",
-   "last_success": "2026-06-10T07:42:20Z",
+   "last_run": "2026-06-10T17:25:22Z",
+   "last_success": "2026-06-10T17:25:23Z",
    "records": 120,
    "note": "1 series, 120 points; warnings: ['Year range has been reduced to the system-allowed limit of 10 years.']",
    "error": null
@@ -48,7 +48,7 @@
    "schedule": "monthly",
    "output": "business_formation.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:42:18Z",
+   "last_run": "2026-06-10T17:25:22Z",
    "error": "Expecting value: line 2 column 1 (char 1)"
   },
   "cbre_oakland_office": {
@@ -59,8 +59,8 @@
    "schedule": "quarterly",
    "output": "cre_office_cbre.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:42:20Z",
-   "last_success": "2026-06-10T07:44:11Z",
+   "last_run": "2026-06-10T17:25:23Z",
+   "last_success": "2026-06-10T17:27:16Z",
    "records": 3,
    "note": "0 new quarters, 3 total, 9 misses",
    "error": null
@@ -73,8 +73,8 @@
    "schedule": "quarterly",
    "output": "cre_cushman.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:44:11Z",
-   "last_success": "2026-06-10T07:44:13Z",
+   "last_run": "2026-06-10T17:27:16Z",
+   "last_success": "2026-06-10T17:27:17Z",
    "records": 6,
    "note": "0 segments parsed this run",
    "error": null
@@ -87,7 +87,7 @@
    "schedule": "quarterly",
    "output": "city_cash.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:44:13Z",
+   "last_run": "2026-06-10T17:27:17Z",
    "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Cash-Management-Reports \u2014 HTTP 403 from www.oaklandca.gov (likely bot protection)"
   },
   "oakland_revenue_expenditure": {
@@ -98,7 +98,7 @@
    "schedule": "quarterly",
    "output": "city_revenue.json",
    "enabled": true,
-   "last_run": "2026-06-10T07:44:25Z",
+   "last_run": "2026-06-10T17:27:30Z",
    "error": "GET failed after 3 attempts: https://www.oaklandca.gov/Government/Finance-Budget/Financial-Reporting/Revenue-Expenditure-Reports \u2014 HTTP 403 from www.oaklandca.gov (likely bot protection)"
   },
   "oakland_building_permits": {
