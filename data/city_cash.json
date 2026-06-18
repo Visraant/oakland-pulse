@@ -4,6 +4,18 @@
  "report_kind": "cash_management",
  "reports": [
   {
+   "label": "cash-management-report-march-2026.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-march-2026.pdf",
+   "figures": {},
+   "parsed_lines": 0
+  },
+  {
+   "label": "cash-management-report-march-2026-attachment-a-final042826.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-march-2026-attachment-a-final042826.pdf",
+   "figures": {},
+   "parsed_lines": 0
+  },
+  {
    "label": "cash-management-report-december-2025.pdf",
    "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-december-2025.pdf",
    "figures": {},
@@ -62,20 +74,8 @@
    "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-12.31.24-attachment-a.pdf",
    "figures": {},
    "parsed_lines": 0
-  },
-  {
-   "label": "cash-management-report-for-fy-2024-2025-first-quarter-ended-september-30.pdf",
-   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-for-fy-2024-2025-first-quarter-ended-september-30.pdf",
-   "figures": {},
-   "parsed_lines": 0
-  },
-  {
-   "label": "cash-management-report-for-fy-2023-2024-fourth-quarter-ended-june-30-2024.pdf",
-   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-for-fy-2023-2024-fourth-quarter-ended-june-30-2024.pdf",
-   "figures": {},
-   "parsed_lines": 0
   }
  ],
  "failures": [],
- "generated_at": "2026-06-17T17:04:55Z"
+ "generated_at": "2026-06-18T17:24:55Z"
 }
