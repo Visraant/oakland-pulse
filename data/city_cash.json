@@ -10,8 +10,8 @@
    "parsed_lines": 0
   },
   {
-   "label": "cash-management-report-march-2026-attachment-a-final042826.pdf",
-   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-march-2026-attachment-a-final042826.pdf",
+   "label": "cm-mar26-attachment-a.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-mar26-attachment-a.pdf",
    "figures": {},
    "parsed_lines": 0
   },
@@ -77,5 +77,5 @@
   }
  ],
  "failures": [],
- "generated_at": "2026-06-21T16:04:25Z"
+ "generated_at": "2026-06-22T18:21:31Z"
 }
