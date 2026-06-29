@@ -364,7 +364,25 @@
    "vacancy_pct": 7.2,
    "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats",
    "retrieved": "2026-06-28"
+  },
+  {
+   "segment": "office",
+   "vacancy_pct": 27.4,
+   "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats",
+   "retrieved": "2026-06-29"
+  },
+  {
+   "segment": "industrial",
+   "vacancy_pct": 8.0,
+   "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats",
+   "retrieved": "2026-06-29"
+  },
+  {
+   "segment": "retail",
+   "vacancy_pct": 7.2,
+   "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats",
+   "retrieved": "2026-06-29"
   }
  ],
- "generated_at": "2026-06-28T15:27:30Z"
+ "generated_at": "2026-06-29T17:00:56Z"
 }
