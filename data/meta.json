@@ -1,5 +1,5 @@
 {
- "last_pipeline_run": "2026-07-04T15:24:49Z",
+ "last_pipeline_run": "2026-07-05T15:30:44Z",
  "sources": {
   "oakland_business_accounts": {
    "status": "ok",
@@ -9,9 +9,9 @@
    "schedule": "monthly",
    "output": "business_accounts.json",
    "enabled": true,
-   "last_run": "2026-07-04T15:10:48Z",
+   "last_run": "2026-07-05T15:17:16Z",
    "error": null,
-   "last_success": "2026-07-04T15:15:00Z",
+   "last_success": "2026-07-05T15:21:16Z",
    "records": 36,
    "note": "36 months parsed, 0 failures"
   },
@@ -23,8 +23,8 @@
    "schedule": "monthly",
    "output": "employment_unemployment.json",
    "enabled": true,
-   "last_run": "2026-07-04T15:15:00Z",
-   "last_success": "2026-07-04T15:15:00Z",
+   "last_run": "2026-07-05T15:21:16Z",
+   "last_success": "2026-07-05T15:21:16Z",
    "records": 360,
    "note": "3 series, 360 points; warnings: ['Year range has been reduced to the system-allowed limit of 10 years.']",
    "error": null
@@ -37,8 +37,8 @@
    "schedule": "monthly",
    "output": "employment_jobs.json",
    "enabled": true,
-   "last_run": "2026-07-04T15:15:00Z",
-   "last_success": "2026-07-04T15:15:00Z",
+   "last_run": "2026-07-05T15:21:16Z",
+   "last_success": "2026-07-05T15:21:16Z",
    "records": 120,
    "note": "1 series, 120 points; warnings: ['Year range has been reduced to the system-allowed limit of 10 years.']",
    "error": null
@@ -51,7 +51,7 @@
    "schedule": "monthly",
    "output": "business_formation.json",
    "enabled": true,
-   "last_run": "2026-07-04T15:15:00Z",
+   "last_run": "2026-07-05T15:21:16Z",
    "error": "Expecting value: line 2 column 1 (char 1)"
   },
   "cbre_oakland_office": {
@@ -62,8 +62,8 @@
    "schedule": "quarterly",
    "output": "cre_office_cbre.json",
    "enabled": true,
-   "last_run": "2026-07-04T15:15:00Z",
-   "last_success": "2026-07-04T15:16:52Z",
+   "last_run": "2026-07-05T15:21:16Z",
+   "last_success": "2026-07-05T15:23:08Z",
    "records": 3,
    "note": "0 new quarters, 3 total, 9 misses",
    "error": null
@@ -76,9 +76,9 @@
    "schedule": "quarterly",
    "output": "cre_cushman.json",
    "enabled": true,
-   "last_run": "2026-07-04T15:16:52Z",
-   "last_success": "2026-07-04T15:16:54Z",
-   "records": 78,
+   "last_run": "2026-07-05T15:23:08Z",
+   "last_success": "2026-07-05T15:23:10Z",
+   "records": 81,
    "note": "3 segments parsed this run",
    "error": null
   },
@@ -90,9 +90,9 @@
    "schedule": "quarterly",
    "output": "city_cash.json",
    "enabled": true,
-   "last_run": "2026-07-04T15:16:54Z",
+   "last_run": "2026-07-05T15:23:10Z",
    "error": null,
-   "last_success": "2026-07-04T15:17:35Z",
+   "last_success": "2026-07-05T15:23:50Z",
    "records": 12,
    "note": "12 reports parsed, 0 failures"
   },
@@ -104,9 +104,9 @@
    "schedule": "quarterly",
    "output": "city_revenue.json",
    "enabled": true,
-   "last_run": "2026-07-04T15:17:35Z",
+   "last_run": "2026-07-05T15:23:50Z",
    "error": null,
-   "last_success": "2026-07-04T15:24:49Z",
+   "last_success": "2026-07-05T15:30:44Z",
    "records": 12,
    "note": "12 reports parsed, 0 failures"
   },
