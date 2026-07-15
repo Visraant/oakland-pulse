@@ -1,5 +1,5 @@
 {
- "last_pipeline_run": "2026-07-14T15:39:57Z",
+ "last_pipeline_run": "2026-07-15T15:47:26Z",
  "sources": {
   "oakland_business_accounts": {
    "status": "ok",
@@ -9,9 +9,9 @@
    "schedule": "monthly",
    "output": "business_accounts.json",
    "enabled": true,
-   "last_run": "2026-07-14T15:26:37Z",
+   "last_run": "2026-07-15T15:37:21Z",
    "error": null,
-   "last_success": "2026-07-14T15:30:31Z",
+   "last_success": "2026-07-15T15:39:57Z",
    "records": 36,
    "note": "36 months parsed, 0 failures"
   },
@@ -23,25 +23,25 @@
    "schedule": "monthly",
    "output": "employment_unemployment.json",
    "enabled": true,
-   "last_run": "2026-07-14T15:30:32Z",
-   "last_success": "2026-07-14T15:30:32Z",
+   "last_run": "2026-07-15T15:39:58Z",
+   "last_success": "2026-07-15T15:39:58Z",
    "records": 360,
    "note": "3 series, 360 points; warnings: ['Year range has been reduced to the system-allowed limit of 10 years.']",
    "error": null
   },
   "bls_oakland_jobs": {
-   "status": "ok",
+   "status": "error",
    "name": "Total Nonfarm Jobs \u2014 East Bay (BLS CES)",
    "type": "bls",
    "category": "employment",
    "schedule": "monthly",
    "output": "employment_jobs.json",
    "enabled": true,
-   "last_run": "2026-07-14T15:30:32Z",
+   "last_run": "2026-07-15T15:39:58Z",
    "last_success": "2026-07-14T15:30:32Z",
    "records": 120,
    "note": "1 series, 120 points; warnings: ['Year range has been reduced to the system-allowed limit of 10 years.']",
-   "error": null
+   "error": "HTTPSConnectionPool(host='api.bls.gov', port=443): Read timed out. (read timeout=60)"
   },
   "census_business_formation": {
    "status": "error",
@@ -51,7 +51,7 @@
    "schedule": "monthly",
    "output": "business_formation.json",
    "enabled": true,
-   "last_run": "2026-07-14T15:30:31Z",
+   "last_run": "2026-07-15T15:39:57Z",
    "error": "Expecting value: line 2 column 1 (char 1)"
   },
   "cbre_oakland_office": {
@@ -62,10 +62,10 @@
    "schedule": "quarterly",
    "output": "cre_office_cbre.json",
    "enabled": true,
-   "last_run": "2026-07-14T15:30:32Z",
-   "last_success": "2026-07-14T15:32:24Z",
-   "records": 3,
-   "note": "0 new quarters, 3 total, 9 misses",
+   "last_run": "2026-07-15T15:40:58Z",
+   "last_success": "2026-07-15T15:42:39Z",
+   "records": 4,
+   "note": "1 new quarters, 4 total, 8 misses",
    "error": null
   },
   "cushman_oakland_marketbeat": {
@@ -76,10 +76,10 @@
    "schedule": "quarterly",
    "output": "cre_cushman.json",
    "enabled": true,
-   "last_run": "2026-07-14T15:32:24Z",
-   "last_success": "2026-07-14T15:32:26Z",
-   "records": 108,
-   "note": "3 segments parsed this run",
+   "last_run": "2026-07-15T15:42:39Z",
+   "last_success": "2026-07-15T15:42:41Z",
+   "records": 110,
+   "note": "2 segments parsed this run",
    "error": null
   },
   "oakland_cash_management": {
@@ -90,9 +90,9 @@
    "schedule": "quarterly",
    "output": "city_cash.json",
    "enabled": true,
-   "last_run": "2026-07-14T15:32:26Z",
+   "last_run": "2026-07-15T15:42:41Z",
    "error": null,
-   "last_success": "2026-07-14T15:33:06Z",
+   "last_success": "2026-07-15T15:43:10Z",
    "records": 12,
    "note": "12 reports parsed, 0 failures"
   },
@@ -104,9 +104,9 @@
    "schedule": "quarterly",
    "output": "city_revenue.json",
    "enabled": true,
-   "last_run": "2026-07-14T15:33:06Z",
+   "last_run": "2026-07-15T15:43:10Z",
    "error": null,
-   "last_success": "2026-07-14T15:39:57Z",
+   "last_success": "2026-07-15T15:47:26Z",
    "records": 12,
    "note": "12 reports parsed, 0 failures"
   },

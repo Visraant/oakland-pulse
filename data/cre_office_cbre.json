@@ -28,11 +28,19 @@
    "net_absorption_sf": -145792,
    "source_url": "https://www.cbre.com/insights/figures/oakland-office-figures-q1-2026",
    "retrieved": "2026-06-09"
+  },
+  {
+   "quarter": "2026-Q2",
+   "segment": "office",
+   "vacancy_pct": 25.7,
+   "source_url": "https://www.cbre.com/insights/figures/oakland-office-figures-q2-2026",
+   "retrieved": "2026-07-15",
+   "net_absorption_sf": -55141.0,
+   "asking_rent_psf": 3.69
   }
  ],
  "failures": [
   "2026-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2026 \u2014 HTTP 404 from www.cbre.com",
-  "2026-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2026 \u2014 HTTP 404 from www.cbre.com",
   "2025-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2025 \u2014 HTTP 404 from www.cbre.com",
   "2025-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2025 \u2014 HTTP 404 from www.cbre.com",
   "2025-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2025 \u2014 HTTP 404 from www.cbre.com",
@@ -41,5 +49,5 @@
   "2024-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2024 \u2014 HTTP 404 from www.cbre.com",
   "2023-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2023 \u2014 HTTP 404 from www.cbre.com"
  ],
- "generated_at": "2026-07-14T15:32:24Z"
+ "generated_at": "2026-07-15T15:42:39Z"
 }
