@@ -40,14 +40,14 @@
   }
  ],
  "failures": [
-  "2026-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2026 \u2014 HTTP 404 from www.cbre.com",
-  "2025-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2025 \u2014 HTTP 404 from www.cbre.com",
-  "2025-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2025 \u2014 HTTP 404 from www.cbre.com",
-  "2025-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2025 \u2014 HTTP 404 from www.cbre.com",
-  "2025-Q1: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q1-2025 \u2014 HTTP 404 from www.cbre.com",
-  "2024-Q3: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q3-2024 \u2014 HTTP 404 from www.cbre.com",
-  "2024-Q2: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q2-2024 \u2014 HTTP 404 from www.cbre.com",
-  "2023-Q4: GET failed after 3 attempts: https://www.cbre.com/insights/figures/oakland-office-figures-q4-2023 \u2014 HTTP 404 from www.cbre.com"
+  "2026-Q3: page found but vacancy figure not located",
+  "2025-Q4: page found but vacancy figure not located",
+  "2025-Q3: page found but vacancy figure not located",
+  "2025-Q2: page found but vacancy figure not located",
+  "2025-Q1: page found but vacancy figure not located",
+  "2024-Q3: page found but vacancy figure not located",
+  "2024-Q2: page found but vacancy figure not located",
+  "2023-Q4: page found but vacancy figure not located"
  ],
- "generated_at": "2026-08-19T14:44:25Z"
+ "generated_at": "2026-08-20T14:44:48Z"
 }
