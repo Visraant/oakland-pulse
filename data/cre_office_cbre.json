@@ -40,14 +40,14 @@
   }
  ],
  "failures": [
+  "2026-Q4: page found but vacancy figure not located",
   "2026-Q3: page found but vacancy figure not located",
   "2025-Q4: page found but vacancy figure not located",
   "2025-Q3: page found but vacancy figure not located",
   "2025-Q2: page found but vacancy figure not located",
   "2025-Q1: page found but vacancy figure not located",
   "2024-Q3: page found but vacancy figure not located",
-  "2024-Q2: page found but vacancy figure not located",
-  "2023-Q4: page found but vacancy figure not located"
+  "2024-Q2: page found but vacancy figure not located"
  ],
- "generated_at": "2026-09-30T19:03:59Z"
+ "generated_at": "2026-10-01T19:25:52Z"
 }
