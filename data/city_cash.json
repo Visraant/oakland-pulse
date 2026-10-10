@@ -4,6 +4,12 @@
  "report_kind": "cash_management",
  "reports": [
   {
+   "label": "info-memo_cash-mgmt-report-q2-june-30-2026-final.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/info-memo_cash-mgmt-report-q2-june-30-2026-final.pdf",
+   "figures": {},
+   "parsed_lines": 0
+  },
+  {
    "label": "cash-management-report-march-2026.pdf",
    "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cash-management-report-march-2026.pdf",
    "figures": {},
@@ -68,14 +74,8 @@
    "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-12.31.24.pdf",
    "figures": {},
    "parsed_lines": 0
-  },
-  {
-   "label": "cm-report-12.31.24-attachment-a.pdf",
-   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/cash-management-reports/cm-report-12.31.24-attachment-a.pdf",
-   "figures": {},
-   "parsed_lines": 0
   }
  ],
  "failures": [],
- "generated_at": "2026-10-09T19:27:12Z"
+ "generated_at": "2026-10-10T18:26:41Z"
 }
