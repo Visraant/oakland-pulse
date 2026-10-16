@@ -37,11 +37,19 @@
    "retrieved": "2026-07-15",
    "net_absorption_sf": -55141.0,
    "asking_rent_psf": 3.69
+  },
+  {
+   "quarter": "2026-Q3",
+   "segment": "office",
+   "vacancy_pct": 26.7,
+   "source_url": "https://www.cbre.com/insights/figures/oakland-office-figures-q3-2026",
+   "retrieved": "2026-10-16",
+   "net_absorption_sf": -314661.0,
+   "asking_rent_psf": 3.69
   }
  ],
  "failures": [
   "2026-Q4: page found but vacancy figure not located",
-  "2026-Q3: page found but vacancy figure not located",
   "2025-Q4: page found but vacancy figure not located",
   "2025-Q3: page found but vacancy figure not located",
   "2025-Q2: page found but vacancy figure not located",
@@ -49,5 +57,5 @@
   "2024-Q3: page found but vacancy figure not located",
   "2024-Q2: page found but vacancy figure not located"
  ],
- "generated_at": "2026-10-15T18:11:51Z"
+ "generated_at": "2026-10-16T17:58:22Z"
 }
