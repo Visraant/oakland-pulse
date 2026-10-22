@@ -4,8 +4,36 @@
  "report_kind": "revenue_expenditure",
  "reports": [
   {
-   "label": "fy24-25-q2-re-report.pdf",
-   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy24-25-q2-re-report.pdf",
+   "label": "fiscal-year-2025-26-third-quarter-revenue-and-expenditures-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fiscal-year-2025-26-third-quarter-revenue-and-expenditures-report.pdf",
+   "figures": {
+    "sales_tax": 2026.0,
+    "property_tax": 2026.0,
+    "business_license_tax": 2025.0,
+    "real_estate_transfer_tax": 2025.0,
+    "utility_consumption_tax": 2025.0,
+    "transient_occupancy_tax": 2025.0,
+    "parking_tax": 2025.0
+   },
+   "parsed_lines": 7
+  },
+  {
+   "label": "fiscal-year-2025-26-second-quarter-revenue-and-expenditures-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fiscal-year-2025-26-second-quarter-revenue-and-expenditures-report.pdf",
+   "figures": {
+    "property_tax": 2025.0,
+    "business_license_tax": 2025.0,
+    "real_estate_transfer_tax": 2025.0,
+    "sales_tax": 2025.0,
+    "utility_consumption_tax": 2025.0,
+    "transient_occupancy_tax": 2025.0,
+    "parking_tax": 2025.0
+   },
+   "parsed_lines": 7
+  },
+  {
+   "label": "fiscal-year-2024-25-fourth-quarter-revenue-and-expenditures-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fiscal-year-2024-25-fourth-quarter-revenue-and-expenditures-report.pdf",
    "figures": {
     "property_tax": 2024.0,
     "business_license_tax": 2024.0,
@@ -32,12 +60,18 @@
    "parsed_lines": 7
   },
   {
-   "label": "fy23-24-q4-re-report-questions-and-responses-1-as-of-11.19.24-9.24am-with-attachments.pdf",
-   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy23-24-q4-re-report-questions-and-responses-1-as-of-11.19.24-9.24am-with-attachments.pdf",
+   "label": "fy24-25-q2-re-report.pdf",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy24-25-q2-re-report.pdf",
    "figures": {
-    "total_revenue": 31126085.0
+    "property_tax": 2024.0,
+    "business_license_tax": 2024.0,
+    "real_estate_transfer_tax": 2024.0,
+    "utility_consumption_tax": 2024.0,
+    "sales_tax": 2024.0,
+    "transient_occupancy_tax": 2024.0,
+    "parking_tax": 2024.0
    },
-   "parsed_lines": 1
+   "parsed_lines": 7
   },
   {
    "label": "fiscal-year-2024-25-first-quarter-q1-revenue-and-expenditures-re-report.pdf",
@@ -124,32 +158,8 @@
     "transient_occupancy_tax": 2419.0
    },
    "parsed_lines": 3
-  },
-  {
-   "label": "revenue-and-expenditure-report-re-fy-2021-22-q4-and-fy-2022-23-q1.pdf",
-   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/revenue-and-expenditure-report-re-fy-2021-22-q4-and-fy-2022-23-q1.pdf",
-   "figures": {
-    "property_tax": 2270.0,
-    "real_estate_transfer_tax": 2022.0,
-    "sales_tax": 2021.0,
-    "transient_occupancy_tax": 2419.0,
-    "business_license_tax": 2022.0
-   },
-   "parsed_lines": 5
-  },
-  {
-   "label": "fy-2021-22-third-quarter-q3-revenue-and-expenditure-re-report.pdf",
-   "url": "https://www.oaklandca.gov/files/assets/city/v/1/finance/documents/financial-reporting/revenue-amp-expenditure-reports/fy-2021-22-third-quarter-q3-revenue-and-expenditure-re-report.pdf",
-   "figures": {
-    "property_tax": 3308332.0,
-    "sales_tax": 2069008.0,
-    "parking_tax": 1342026.0,
-    "total_revenue": 44935126.0,
-    "transient_occupancy_tax": 2419.0
-   },
-   "parsed_lines": 5
   }
  ],
  "failures": [],
- "generated_at": "2026-10-21T18:41:17Z"
+ "generated_at": "2026-10-22T18:35:27Z"
 }
