@@ -1894,7 +1894,13 @@
    "vacancy_pct": 28.5,
    "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats",
    "retrieved": "2026-11-01"
+  },
+  {
+   "segment": "office",
+   "vacancy_pct": 28.5,
+   "source_url": "https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/oakland-marketbeats",
+   "retrieved": "2026-11-02"
   }
  ],
- "generated_at": "2026-11-01T18:52:04Z"
+ "generated_at": "2026-11-02T22:44:23Z"
 }
